@@ -24,11 +24,11 @@ export function CardList({data, handleDetails, ...rest}: Props) {
   return (
     <Container onPress={handleDetails} {...rest}>
       <Wrapper>
-        <ImageWeather
+        {/* <ImageWeather
           source={fruits.find(el => el.key === image)?.image}
           style={{height: 110, width: 110}}
           resizeMode="contain"
-        />
+        /> */}
         <Text>{name}</Text>
         <Text>{value}</Text>
       </Wrapper>

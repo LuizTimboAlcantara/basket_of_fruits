@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import FruitsContext from '../../contexts/cart';
 
 import {Input} from '../../components/Input';
 
-export {useNavigation, useRoute} from '@react-navigation/core';
+import {CommonActions, useNavigation} from '@react-navigation/core';
 
 import {Button} from '../../components/Button';
 
@@ -12,8 +13,32 @@ import waterdrop from '../assets/waterdrop.png';
 
 export function Buy(props) {
   const {data} = props.route.params;
+  const {getFruits, saveFruits} = useContext(FruitsContext);
+  const navigation = useNavigation();
+
+  const [teste, setTeste] = useState('');
 
   console.log(data);
+
+  async function handleSave() {
+    const currentData = await getFruits();
+
+    const dados = {
+      key: data.key,
+      qtd: teste,
+    };
+
+    const newData = [...currentData!, dados];
+
+    await saveFruits(newData);
+
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [{name: 'FruitsList'}],
+      }),
+    );
+  }
 
   return (
     <ScrollView
@@ -47,13 +72,13 @@ export function Buy(props) {
               alignItems: 'center',
               justifyContent: 'space-between',
             }}>
-            <Input placeholder="Quantidade" />
+            <Input placeholder="Quantidade" onChangeText={setTeste} />
             <Text style={{marginLeft: '40%', justifyContent: 'flex-end'}}>
               Valor total:
             </Text>
           </View>
           <Icon name="cloud" size={89} color="blue" />
-          <Button title="Adicionar ao carrinho" onPress={() => {}} />
+          <Button title="Adicionar ao carrinho" onPress={handleSave} />
         </View>
       </View>
     </ScrollView>
