@@ -1,23 +1,36 @@
 import React from 'react';
-import {TouchableOpacityProps} from 'react-native';
+import {TouchableOpacityProps, Text} from 'react-native';
 
 import {fruits} from '../../utils/fruits/fruits';
 
 import {Container, Wrapper, ImageWeather} from './styles';
 
+interface Props {
+  key: string;
+  name: string;
+  description: string;
+  image: string;
+  value: number;
+}
+
 interface Props extends TouchableOpacityProps {
-  fruta: string;
+  data: Props;
   handleDetails: () => void;
 }
 
-export function CardList({fruta, handleDetails, ...rest}: Props) {
+export function CardList({data, handleDetails, ...rest}: Props) {
+  const {name, value, image} = data;
+
   return (
     <Container onPress={handleDetails} {...rest}>
       <Wrapper>
         <ImageWeather
-          source={fruits.find(el => el.key === fruta)?.image}
+          source={fruits.find(el => el.key === image)?.image}
+          style={{height: 110, width: 110}}
           resizeMode="contain"
         />
+        <Text>{name}</Text>
+        <Text>{value}</Text>
       </Wrapper>
     </Container>
   );

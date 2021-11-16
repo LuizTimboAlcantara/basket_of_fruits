@@ -17,7 +17,7 @@ export function FruitsList() {
       CommonActions.navigate({
         name: 'Buy',
         params: {
-          name: item.key,
+          data: item,
         },
       }),
     );
@@ -31,10 +31,7 @@ export function FruitsList() {
         keyExtractor={item => String(item.key)}
         data={fruits}
         renderItem={({item}) => (
-          <CardList
-            fruta={item.key}
-            handleDetails={() => handleDatails(item)}
-          />
+          <CardList data={item} handleDetails={() => handleDatails(item)} />
         )}
       />
     </Container>

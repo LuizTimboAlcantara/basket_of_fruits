@@ -48,7 +48,7 @@ export function SignIn() {
 
       <Footer>
         <FooterWrapper>
-          <Input placeholder="User" />
+          <Input placeholder="user" />
           <Input placeholder="senha" />
         </FooterWrapper>
         <Button title="Entrar" onPress={handleFruitsList} />

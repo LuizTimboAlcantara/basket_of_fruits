@@ -1,19 +1,18 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
 
+import {Input} from '../../components/Input';
+
 export {useNavigation, useRoute} from '@react-navigation/core';
 
 import {Button} from '../../components/Button';
 
 import waterdrop from '../assets/waterdrop.png';
 
-type DetailsProps = {
-  key: string;
-  route: any;
-};
+export function Buy(props) {
+  const {data} = props.route.params;
 
-export function Buy({key}: DetailsProps) {
-  console.log(key);
+  console.log(data);
 
   return (
     <ScrollView
@@ -21,7 +20,7 @@ export function Buy({key}: DetailsProps) {
       contentContainerStyle={styles.container}>
       <View style={styles.container}>
         <View style={styles.plantInfo}>
-          <Image source={key} height={150} width={150} />
+          <Image source={data.key} height={150} width={150} />
 
           <Text style={styles.plantName}>{'Ïdjhfdjsfhsdjk'}</Text>
 
@@ -33,13 +32,25 @@ export function Buy({key}: DetailsProps) {
             {/* <Image source={waterdrop} style={styles.tipImage} /> */}
 
             <Text style={styles.tipText}>{'plant.water_tips'}</Text>
-            <Text style={styles.tipText}>{key}</Text>
+            <Text style={styles.tipText}>{data.key}</Text>
           </View>
 
           <Text style={styles.alertLabel}>
             Escolha o melhor horário para ser lembrado:
           </Text>
 
+          <View
+            style={{
+              width: '40%',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}>
+            <Input placeholder="Quantidade" />
+            <Text style={{marginLeft: '40%', justifyContent: 'flex-end'}}>
+              Valor total:
+            </Text>
+          </View>
           <Button title="Adicionar ao carrinho" onPress={() => {}} />
         </View>
       </View>
