@@ -20,7 +20,7 @@ export const fruits = [
     description: 'sdlkfjasldfjalksjdflkasjdlkfj',
     image: require('../../assets/images/logo.png'),
 
-    value: 5,
+    value: 4,
   },
   {
     key: 'abacaxi',
@@ -28,7 +28,7 @@ export const fruits = [
     description: 'sdlkfjasldfjalksjdflkasjdlkfj',
     image: require('../../assets/images/logo.png'),
 
-    value: 5,
+    value: 3,
   },
   {
     key: 'manga',
@@ -36,6 +36,6 @@ export const fruits = [
     description: 'sdlkfjasldfjalksjdflkasjdlkfj',
     image: require('../../assets/images/logo.png'),
 
-    value: 5,
+    value: 6,
   },
 ];
