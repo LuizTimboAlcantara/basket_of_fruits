@@ -38,11 +38,12 @@ export function FruitsList() {
       <InputSearch />
 
       <FlatList
-        keyExtractor={item => String(item.key)}
+        keyExtractor={item => item.key}
         data={fruits}
         renderItem={({item}) => (
           <CardList data={item} handleDetails={() => handleDatails(item)} />
         )}
+        numColumns={2}
       />
     </Container>
   );

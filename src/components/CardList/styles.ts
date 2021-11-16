@@ -4,20 +4,18 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import Colors from '../../utils/theme/colors';
 
 export const Container = styled.TouchableOpacity`
-  width: 50%;
+  width: 45%;
   background-color: ${Colors.shape};
-  flex-direction: column;
-  justify-content: space-between;
-  padding: ${RFValue(13)}px ${RFValue(24)}px;
-  border-radius: ${RFValue(5)}px;
-  border-left-width: ${RFValue(5)}px;
-  margin-bottom: ${RFValue(8)}px;
+  border-radius: ${RFValue(20)}px;
+  padding: ${RFValue(50)}px 0;
+  align-items: center;
+  margin: ${RFValue(5)}px;
 `;
 
 export const Wrapper = styled.View`
   flex-direction: row;
-  margin-top: 10px;
-  padding-top: 30px;
+  margin-top: ${RFValue(10)}px;
+  padding-top: ${RFValue(30)}px;
 `;
 
 export const ImageWeather = styled.Image`
