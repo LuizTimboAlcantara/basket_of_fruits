@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {FC} from 'react';
 
 import {Container, Input} from './styles';
 
 type SearchProps = {};
 
-export default function InputSearch({}: SearchProps) {
+const InputSearch: FC<SearchProps> = () => {
   return (
     <Container>
-      <Input placeholder="Digite o nome da cidade" />
+      <Input placeholder="Digite o nome da fruta" />
     </Container>
   );
-}
+};
+
+export default InputSearch;

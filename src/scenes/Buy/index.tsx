@@ -3,11 +3,9 @@ import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FruitsContext from '../../contexts/cart';
 
-import {Input} from '../../components/Input';
+import {Button, Input} from '../../components';
 
 import {CommonActions, useNavigation} from '@react-navigation/core';
-
-import {Button} from '../../components/Button';
 
 import waterdrop from '../assets/waterdrop.png';
 

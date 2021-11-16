@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {TouchableOpacityProps} from 'react-native';
 
 import {Container, Title} from './styles';
@@ -7,10 +7,12 @@ interface ButtonProps extends TouchableOpacityProps {
   title: string;
 }
 
-export default function Button({title, ...rest}: ButtonProps) {
+const Button: FC<ButtonProps> = ({title, ...rest}) => {
   return (
     <Container activeOpacity={0.7} {...rest}>
       <Title>{title}</Title>
     </Container>
   );
-}
+};
+
+export default Button;

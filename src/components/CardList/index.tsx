@@ -1,9 +1,7 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {TouchableOpacityProps, Text} from 'react-native';
 
-import {fruits} from '../../utils/fruits/fruits';
-
-import {Container, Wrapper, ImageWeather} from './styles';
+import {Container, Wrapper} from './styles';
 
 interface Props {
   key: string;
@@ -18,20 +16,17 @@ interface Props extends TouchableOpacityProps {
   handleDetails: () => void;
 }
 
-export default function CardList({data, handleDetails, ...rest}: Props) {
+const CardList: FC<Props> = ({data, handleDetails, ...rest}) => {
   const {name, value, image} = data;
 
   return (
     <Container onPress={handleDetails} {...rest}>
       <Wrapper>
-        {/* <ImageWeather
-          source={fruits.find(el => el.key === image)?.image}
-          style={{height: 110, width: 110}}
-          resizeMode="contain"
-        /> */}
         <Text>{name}</Text>
         <Text>{value}</Text>
       </Wrapper>
     </Container>
   );
-}
+};
+
+export default CardList;
