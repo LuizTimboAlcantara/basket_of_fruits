@@ -5,7 +5,7 @@ import {CommonActions, useNavigation} from '@react-navigation/native';
 import {Input} from '../../components/Input';
 import {Button} from '../../components/Button';
 
-import LogoPng from '../../assets/img/logo.png';
+import LogoPng from '../../assets/images/logo.png';
 
 import {
   Container,
