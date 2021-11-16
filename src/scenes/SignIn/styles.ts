@@ -19,6 +19,11 @@ export const TitleWrapper = styled.View`
   align-items: center;
 `;
 
+export const Logo = styled.Image`
+  height: ${RFValue(110)}px;
+  width: ${RFValue(110)}px;
+`;
+
 export const Title = styled.Text`
   color: ${Colors.shape};
   font-size: ${RFValue(30)}px;

@@ -5,8 +5,7 @@ import FruitsContext from '../../contexts/cart';
 
 import {fruits} from '../../utils/fruits/fruits';
 
-import {InputSearch} from '../../components/InputSearch';
-import {CardList} from '../../components/CardList';
+import {CardList, InputSearch} from '../../components';
 
 import {Container} from './styles';
 

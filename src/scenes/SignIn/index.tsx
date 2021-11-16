@@ -1,23 +1,10 @@
-import React from 'react';
-import {Image} from 'react-native';
-import {CommonActions, useNavigation} from '@react-navigation/native';
+import React, {FC} from 'react';
 
-import {Input} from '../../components/Input';
-import {Button} from '../../components/Button';
+import {CommonActions, useNavigation} from '../../modules';
 
-import LogoPng from '../../assets/images/logo.png';
+import SignIn from './SignIn';
 
-import {
-  Container,
-  Header,
-  TitleWrapper,
-  Title,
-  SignInTitle,
-  Footer,
-  FooterWrapper,
-} from './styles';
-
-export function SignIn() {
+const SignInMain: FC = () => {
   const navigation = useNavigation();
 
   function handleFruitsList() {
@@ -28,31 +15,7 @@ export function SignIn() {
     );
   }
 
-  return (
-    <Container>
-      <Header>
-        <TitleWrapper>
-          <Image
-            source={LogoPng}
-            style={{height: 110, width: 110}}
-            resizeMode="contain"
-          />
-        </TitleWrapper>
+  return <SignIn handleFruitsList={handleFruitsList} />;
+};
 
-        <Title>Todo dia {'\n'} é dia de feira</Title>
-        <SignInTitle>
-          Selecionamos as melhoras {'\n'}
-          frutas para você!
-        </SignInTitle>
-      </Header>
-
-      <Footer>
-        <FooterWrapper>
-          <Input placeholder="user" />
-          <Input placeholder="senha" />
-        </FooterWrapper>
-        <Button title="Entrar" onPress={handleFruitsList} />
-      </Footer>
-    </Container>
-  );
-}
+export default SignInMain;

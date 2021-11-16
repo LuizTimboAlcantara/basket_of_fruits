@@ -7,7 +7,7 @@ interface ButtonProps extends TouchableOpacityProps {
   title: string;
 }
 
-export function Button({title, ...rest}: ButtonProps) {
+export default function Button({title, ...rest}: ButtonProps) {
   return (
     <Container activeOpacity={0.7} {...rest}>
       <Title>{title}</Title>

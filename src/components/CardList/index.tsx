@@ -18,7 +18,7 @@ interface Props extends TouchableOpacityProps {
   handleDetails: () => void;
 }
 
-export function CardList({data, handleDetails, ...rest}: Props) {
+export default function CardList({data, handleDetails, ...rest}: Props) {
   const {name, value, image} = data;
 
   return (
