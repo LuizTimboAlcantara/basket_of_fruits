@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {Input} from '../../components/Input';
 
@@ -51,6 +52,7 @@ export function Buy(props) {
               Valor total:
             </Text>
           </View>
+          <Icon name="cloud" size={89} color="blue" />
           <Button title="Adicionar ao carrinho" onPress={() => {}} />
         </View>
       </View>
