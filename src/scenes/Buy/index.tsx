@@ -4,6 +4,7 @@ import {Alert} from 'react-native';
 import FruitsContext from '../../contexts/cart';
 
 import {CommonActions, useNavigation} from '../../modules';
+import {FormattedMoney} from '../../utils/formatted/money';
 
 import Buy from './Buy';
 
@@ -68,7 +69,7 @@ const BuyMain: FC<SignInProps> = props => {
   function handleTotalSum(value: string) {
     const total = Number(data.value) * Number(value);
 
-    return String(total);
+    return FormattedMoney(total);
   }
 
   return (

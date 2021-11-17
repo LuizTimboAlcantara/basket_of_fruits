@@ -34,3 +34,9 @@ export const Footer = styled.View`
   justify-content: flex-end;
   padding-bottom: 10%;
 `;
+
+export const TitleName = styled.Text`
+  margin-top: ${RFValue(15)}px;
+`;
+
+export const TitleValue = styled.Text``;

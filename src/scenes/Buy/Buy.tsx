@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
-import {Text} from 'react-native';
-
 import {Button, Input, Header, FruitIcon} from '../../components';
+
+import {FormattedMoney} from '../../utils/formatted/money';
 
 import Colors from '../../utils/theme/colors';
 
@@ -11,6 +11,8 @@ import {
   InputContainer,
   ContainerInfo,
   DescriptionInfo,
+  TitleName,
+  TitleValue,
 } from './styles';
 
 interface SignInProps {
@@ -29,19 +31,23 @@ export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
       <ContainerInfo>
         <FruitIcon icon={data.name} width={200} height={200} />
 
-        <Text>{data.name}</Text>
+        <TitleName>
+          {data.name} - {FormattedMoney(Number(data.value))}/kg
+        </TitleName>
         <DescriptionInfo>{data.description}</DescriptionInfo>
       </ContainerInfo>
 
       <InputContainer>
         <Input
-          placeholder="Quantidade"
+          placeholder="kg"
           type="small"
           keyboardType="numeric"
           onChangeText={setQuantidade}
         />
-        <Text>Valor Total: </Text>
-        <Text>R$ {handleTotalSum(quantidade)}</Text>
+        <TitleValue>
+          Valor Total:
+          {handleTotalSum(quantidade)}
+        </TitleValue>
       </InputContainer>
 
       <Footer>
