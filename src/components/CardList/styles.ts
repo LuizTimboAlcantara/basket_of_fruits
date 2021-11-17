@@ -29,6 +29,10 @@ export const IconContainer = styled.TouchableOpacity`
   bottom: 15%;
 `;
 
+export const TitleFruits = styled.Text``;
+
+export const ValueTitle = styled.Text``;
+
 export const Icon = styled(MaterialIcons)`
   align-self: flex-end;
   font-size: ${RFValue(35)}px;

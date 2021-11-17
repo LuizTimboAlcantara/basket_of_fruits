@@ -6,6 +6,14 @@ export const Container = styled.View`
   margin-top: ${getStatusBarHeight()}px;
 `;
 
+export const Title = styled.Text`
+  font-weight: bold;
+  font-size: 20px;
+  justify-content: center;
+  align-self: center;
+  margin-top: 5%;
+`;
+
 export const Footer = styled.View`
   bottom: ${getBottomSpace()}px;
 `;

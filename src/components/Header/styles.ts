@@ -11,13 +11,22 @@ export const Container = styled.View`
   align-self: flex-end;
   margin-top: 2%;
   margin-right: 2%;
+  flex-direction: row;
 `;
 
-export const Icon = styled(MaterialIcons)`
+export const IconCart = styled(MaterialIcons)`
   padding-top: ${getStatusBarHeight()}px;
   margin-top: 20%;
   height: ${RFValue(60)}px;
   right: 20%;
   font-size: ${RFValue(35)}px;
   color: ${Colors.success};
+`;
+
+export const IconExit = styled(MaterialIcons)`
+  padding-top: ${getStatusBarHeight()}px;
+  margin-top: 35%;
+  height: ${RFValue(60)}px;
+  font-size: ${RFValue(30)}px;
+  color: ${Colors.text};
 `;

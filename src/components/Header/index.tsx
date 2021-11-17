@@ -4,7 +4,7 @@ import {CommonActions, useNavigation} from '@react-navigation/native';
 
 import Quantity from '../Quantity';
 
-import {Container, Icon} from './styles';
+import {Container, IconCart, IconExit} from './styles';
 
 const Header: FC = () => {
   const navigation = useNavigation();
@@ -16,11 +16,24 @@ const Header: FC = () => {
       }),
     );
   }
+
+  function handleLogin() {
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: 'SignIn',
+      }),
+    );
+  }
+
   return (
     <Container>
       <TouchableOpacity onPress={handleFruitsList}>
         <Quantity />
-        <Icon name="shopping-cart" />
+        <IconCart name="shopping-cart" />
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={handleLogin}>
+        <IconExit name="logout" />
       </TouchableOpacity>
     </Container>
   );
