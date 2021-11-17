@@ -15,16 +15,21 @@ import {
 interface Props extends TouchableOpacityProps {
   data: {key: string; qtd: string};
   handleDetails?: () => void;
-  handleRemove?: () => void;
+  handleRemove?: (item: string) => void;
 }
 
-const CardRemove: FC<Props> = ({data, handleDetails, ...rest}) => {
+const CardRemove: FC<Props> = ({
+  data,
+  handleDetails,
+  handleRemove,
+  ...rest
+}) => {
   const {key, qtd} = data;
 
   console.log(data);
 
   return (
-    <Container onPress={handleDetails} {...rest}>
+    <Container onPress={() => handleRemove(key)} {...rest}>
       <Wrapper>
         <ContainerDelete>
           <SVGImg width={100} height={100} />

@@ -18,7 +18,9 @@ export const Cart: FC<CartProps> = ({data, handleRemove, onShare}) => {
       <FlatList
         keyExtractor={item => item.key}
         data={data}
-        renderItem={({item}) => <CardListRemove data={item} />}
+        renderItem={({item}) => (
+          <CardListRemove data={item} handleRemove={handleRemove} />
+        )}
       />
 
       <Footer>

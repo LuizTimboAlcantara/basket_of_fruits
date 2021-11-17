@@ -1,4 +1,4 @@
-import React, {FC, useState, useContext, useCallback} from 'react';
+import React, {FC, useState, useContext, useCallback, useEffect} from 'react';
 import {Share} from 'react-native';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import {useFocusEffect} from '@react-navigation/native';
@@ -79,6 +79,10 @@ const CartMain: FC = () => {
 
     await saveFruits(newlist);
   }
+
+  useEffect(() => {
+    handleGetFruits;
+  }, [data]);
 
   useFocusEffect(
     useCallback(() => {
