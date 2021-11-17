@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
 import {FlatList} from 'react-native';
 
-import {CardListRemove, CardList} from '../../components';
+import {CardListRemove, Button} from '../../components';
 
-import {Container} from './styles';
+import Colors from '../../utils/theme/colors';
+import {Container, Footer} from './styles';
 
 interface CartProps {
   data: FruitsProps;
@@ -18,6 +19,14 @@ export const Cart: FC<CartProps> = ({data, handleRemove}) => {
         data={data}
         renderItem={({item}) => <CardListRemove data={item} />}
       />
+
+      <Footer>
+        <Button
+          title="Gerar comprovate"
+          color={Colors.secondary}
+          type="large"
+        />
+      </Footer>
     </Container>
   );
 };

@@ -1,50 +1,42 @@
 import React, {FC} from 'react';
-import {Animated, Text} from 'react-native';
+import {TouchableOpacityProps, Text} from 'react-native';
 
-import {Swipeable} from '../../modules';
+import SVGImg from '../../assets/svgs/banana.svg';
 
 import {
+  Container,
   Wrapper,
-  ButtonRemove,
-  Icon,
   ContainerInfo,
-  Info,
-  InfoCity,
+  IconContainer,
+  ContainerDelete,
+  Icon,
 } from './styles';
 
-interface Props {
+interface Props extends TouchableOpacityProps {
   data: FruitsProps;
+  handleDetails?: () => void;
   handleRemove?: () => void;
 }
 
-const CardList: FC<Props> = ({data, handleRemove}) => {
+const CardRemove: FC<Props> = ({data, handleDetails, ...rest}) => {
   const {name, value} = data;
 
   return (
-    <Wrapper>
-      <Swipeable
-        overshootRight={false}
-        renderRightActions={() => (
-          <Animated.View>
-            <ButtonRemove onPress={handleRemove}>
-              <Icon name="search" />
-            </ButtonRemove>
-          </Animated.View>
-        )}>
+    <Container onPress={handleDetails} {...rest}>
+      <Wrapper>
+        <ContainerDelete>
+          <SVGImg width={100} height={100} />
+        </ContainerDelete>
         <ContainerInfo>
-          <InfoCity></InfoCity>
-
-          <Text>{name}</Text>
-          <Text>{value}</Text>
-          <Info></Info>
-          <Info></Info>
-          <Info></Info>
-          <Info></Info>
-          <Info></Info>
+          <Text>Fruta: {name}</Text>
+          <Text>Valor: {value}</Text>
         </ContainerInfo>
-      </Swipeable>
-    </Wrapper>
+        <IconContainer>
+          <Icon name="cancel" />
+        </IconContainer>
+      </Wrapper>
+    </Container>
   );
 };
 
-export default CardList;
+export default CardRemove;
