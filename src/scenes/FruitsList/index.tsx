@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {FlatList} from 'react-native';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 
@@ -10,6 +10,17 @@ import {Container} from './styles';
 
 export function FruitsList() {
   const navigation = useNavigation();
+  const [data, setData] = useState(fruits);
+
+  function handleSearch(item: string) {
+    if (item !== '') {
+      const dados = fruits.filter(element => element.name === item);
+
+      setData(dados);
+    } else {
+      setData(fruits);
+    }
+  }
 
   function handleDatails(item: FruitsProps) {
     navigation.dispatch(
@@ -25,11 +36,11 @@ export function FruitsList() {
   return (
     <Container>
       <Header />
-      <InputSearch onChangeText={() => {}} />
+      <InputSearch onChangeText={handleSearch} />
 
       <FlatList
         keyExtractor={item => item.key}
-        data={fruits}
+        data={data}
         renderItem={({item}) => (
           <CardList data={item} handleDetails={() => handleDatails(item)} />
         )}
