@@ -1,7 +1,6 @@
-import React, {useContext, useEffect} from 'react';
+import React from 'react';
 import {FlatList} from 'react-native';
 import {CommonActions, useNavigation} from '@react-navigation/native';
-import FruitsContext from '../../contexts/cart';
 
 import {fruits} from '../../utils/fruits/fruits';
 
@@ -11,9 +10,8 @@ import {Container} from './styles';
 
 export function FruitsList() {
   const navigation = useNavigation();
-  const {getFruits} = useContext(FruitsContext);
 
-  function handleDatails(item) {
+  function handleDatails(item: FruitsProps) {
     navigation.dispatch(
       CommonActions.navigate({
         name: 'Buy',
@@ -27,7 +25,7 @@ export function FruitsList() {
   return (
     <Container>
       <Header />
-      <InputSearch />
+      <InputSearch onChangeText={() => {}} />
 
       <FlatList
         keyExtractor={item => item.key}

@@ -4,11 +4,11 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import Colors from '../../utils/theme/colors';
 
 interface InputProps {
-  type: 'large' | 'medium';
+  type: 'large' | 'small';
 }
 
 export const Container = styled.TextInput<InputProps>`
-  width: ${({type}) => (type === 'large' ? 100 : 50)}%;
+  width: ${({type}) => (type === 'large' ? 100 : 30)}%;
   padding: ${RFValue(16)}px;
   font-size: ${RFValue(14)}px;
   background-color: ${Colors.shape};

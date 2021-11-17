@@ -1,157 +1,49 @@
-import React, {useState, useContext} from 'react';
-import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import React, {FC, useContext} from 'react';
+
 import FruitsContext from '../../contexts/cart';
 
-import {Button, Input} from '../../components';
+import {CommonActions, useNavigation} from '../../modules';
 
-import {CommonActions, useNavigation} from '@react-navigation/core';
+import Buy from './Buy';
 
-import waterdrop from '../assets/waterdrop.png';
+interface SignInProps {
+  data: FruitsProps;
+  route: any;
+}
 
-export function Buy(props) {
+const BuyMain: FC<SignInProps> = props => {
   const {data} = props.route.params;
-  const {getFruits, saveFruits} = useContext(FruitsContext);
   const navigation = useNavigation();
 
-  const [teste, setTeste] = useState('');
+  const {getFruits, saveFruits, removeAll} = useContext(FruitsContext);
 
   console.log(data);
 
-  async function handleSave() {
+  async function handleAdd(item: AsyncFruitsProps) {
     const currentData = await getFruits();
 
-    const dados = {
-      key: data.key,
-      qtd: teste,
-    };
+    console.log(currentData);
 
-    const newData = [...currentData!, dados];
+    const newData = [...currentData!, item];
 
     await saveFruits(newData);
 
+    // await removeAll();
+
+    console.log(item);
+
+    handleFruitsList();
+  }
+
+  function handleFruitsList() {
     navigation.dispatch(
-      CommonActions.reset({
-        index: 1,
-        routes: [{name: 'FruitsList'}],
+      CommonActions.navigate({
+        name: 'FruitsList',
       }),
     );
   }
 
-  return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={styles.container}>
-      <View style={styles.container}>
-        <View style={styles.plantInfo}>
-          <Image source={data.key} height={150} width={150} />
+  return <Buy data={data} handleAdd={handleAdd} />;
+};
 
-          <Text style={styles.plantName}>{'Ïdjhfdjsfhsdjk'}</Text>
-
-          <Text style={styles.plantAbout}>{'asfjhaskjfhaskjf'}</Text>
-        </View>
-
-        <View style={styles.controller}>
-          <View style={styles.tipcontroller}>
-            {/* <Image source={waterdrop} style={styles.tipImage} /> */}
-
-            <Text style={styles.tipText}>{'plant.water_tips'}</Text>
-            <Text style={styles.tipText}>{data.key}</Text>
-          </View>
-
-          <Text style={styles.alertLabel}>
-            Escolha o melhor horário para ser lembrado:
-          </Text>
-
-          <View
-            style={{
-              width: '40%',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}>
-            <Input placeholder="Quantidade" onChangeText={setTeste} />
-            <Text style={{marginLeft: '40%', justifyContent: 'flex-end'}}>
-              Valor total:
-            </Text>
-          </View>
-          <Icon name="cloud" size={89} color="blue" />
-          <Button title="Adicionar ao carrinho" onPress={handleSave} />
-        </View>
-      </View>
-    </ScrollView>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'space-between',
-    // backgroundColor: Colors.shape,
-  },
-  plantInfo: {
-    flex: 1,
-    paddingHorizontal: 30,
-    paddingVertical: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-    // backgroundColor: Colors.shape,
-  },
-  plantName: {
-    // fontFamily: Fonts.heading,
-    fontSize: 24,
-    // color: Colors.heading,
-    marginTop: 15,
-  },
-  plantAbout: {
-    textAlign: 'center',
-    // fontFamily: Fonts.heading,
-    // color: Colors.heading,
-    fontSize: 17,
-    marginTop: 10,
-  },
-  controller: {
-    // backgroundColor: Colors.white,
-    paddingHorizontal: 20,
-    paddingTop: 20,
-    paddingBottom: 20,
-  },
-  tipcontroller: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    // backgroundColor: Colors.blue_light,
-    padding: 20,
-    borderRadius: 20,
-    position: 'relative',
-    bottom: 60,
-  },
-  tipImage: {
-    width: 58,
-    height: 58,
-  },
-  tipText: {
-    flex: 1,
-    marginLeft: 20,
-    // fontFamily: Fonts.text,
-    // color: Colors.blue,
-    fontSize: 17,
-    textAlign: 'center',
-  },
-  alertLabel: {
-    textAlign: 'center',
-    // fontFamily: Fonts.complement,
-    // color: Colors.heading,
-    marginBottom: 5,
-  },
-  dateTimePickerButton: {
-    width: '100%',
-    alignItems: 'center',
-    paddingVertical: 40,
-  },
-  dateTimePickerText: {
-    // color: Colors.heading,
-    fontSize: 24,
-    // fontFamily: Fonts.text,s
-  },
-});
+export default BuyMain;
