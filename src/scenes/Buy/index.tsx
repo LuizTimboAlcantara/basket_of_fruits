@@ -20,8 +20,6 @@ const BuyMain: FC<SignInProps> = props => {
   const {getFruits, saveFruits, removeAll} = useContext(FruitsContext);
 
   async function handleAdd(item: AsyncFruitsProps) {
-    console.log(item);
-
     if (!item.qtd) {
       Alert.alert(
         'É preciso adicionar uma quantidade para adicionar o item ao carrinho!',
@@ -41,8 +39,6 @@ const BuyMain: FC<SignInProps> = props => {
       };
 
       const newlist = currentData.filter(element => element.key !== item.key);
-
-      console.log(newlist);
 
       const newData = [...newlist, newDado];
 

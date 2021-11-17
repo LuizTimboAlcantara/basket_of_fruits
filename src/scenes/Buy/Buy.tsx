@@ -32,7 +32,7 @@ export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
         <FruitIcon icon={data.name} width={200} height={200} />
 
         <TitleName>
-          {data.name} - {FormattedMoney(Number(data.value))}/kg
+          {data.name} - {FormattedMoney(data.value)}/kg
         </TitleName>
         <DescriptionInfo>{data.description}</DescriptionInfo>
       </ContainerInfo>

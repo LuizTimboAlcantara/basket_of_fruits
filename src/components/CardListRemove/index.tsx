@@ -26,8 +26,6 @@ const CardRemove: FC<Props> = ({
 }) => {
   const {key, qtd} = data;
 
-  console.log(data);
-
   return (
     <Container {...rest}>
       <Wrapper>
