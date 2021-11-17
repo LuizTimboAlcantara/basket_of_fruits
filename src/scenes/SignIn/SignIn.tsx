@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 
 import {Button, Input} from '../../components';
+import {KeyboardAvoidingView} from 'react-native';
 
 import Texts from '../../utils/texts';
 import Colors from '../../utils/theme/colors';
@@ -8,6 +9,7 @@ import LogoPng from '../../assets/images/logo.png';
 
 import {
   Container,
+  Content,
   Header,
   TitleWrapper,
   Logo,

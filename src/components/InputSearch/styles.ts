@@ -10,7 +10,7 @@ export const Container = styled.View`
   flex-direction: row;
   align-self: center;
   padding: 0 ${RFValue(20)}px;
-  background-color: ${Colors.text};
+  background-color: ${Colors.shape};
   border-radius: ${RFValue(20)}px;
   margin-top: 25%;
   margin-bottom: ${RFValue(20)}px;

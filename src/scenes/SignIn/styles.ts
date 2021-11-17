@@ -7,6 +7,12 @@ export const Container = styled.View`
   flex: 1;
 `;
 
+export const Content = styled.ScrollView`
+  flex: 1;
+  width: 100%;
+  height: 100%;
+`;
+
 export const Header = styled.View`
   width: 100%;
   height: 70%;

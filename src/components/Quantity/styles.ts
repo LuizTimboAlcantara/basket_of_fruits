@@ -13,4 +13,5 @@ export const Container = styled.View`
   position: absolute;
   align-self: flex-end;
   top: ${getStatusBarHeight()}px;
+  z-index: 999;
 `;
