@@ -15,7 +15,7 @@ import {
 interface Props extends TouchableOpacityProps {
   data: {key: string; qtd: string};
   handleDetails?: () => void;
-  handleRemove?: (item: string) => void;
+  handleRemove: () => void;
 }
 
 const CardRemove: FC<Props> = ({
@@ -38,7 +38,7 @@ const CardRemove: FC<Props> = ({
           <Text>Fruta: {key}</Text>
           <Text>Valor: {qtd}</Text>
         </ContainerInfo>
-        <IconContainer onPress={() => handleRemove(key)}>
+        <IconContainer onPress={handleRemove}>
           <Icon name="cancel" />
         </IconContainer>
       </Wrapper>

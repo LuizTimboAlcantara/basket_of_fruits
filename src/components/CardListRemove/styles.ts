@@ -9,27 +9,28 @@ export const Container = styled.View`
   flex: 1;
   background-color: ${Colors.shape};
   border-radius: ${RFValue(20)}px;
-  padding: ${RFValue(90)}px ${RFValue(20)}px;
+  padding: ${RFValue(15)}px ${RFValue(10)}px;
   align-items: center;
-  margin: ${RFValue(5)}px ${RFValue(15)}px;
-  top: ${getStatusBarHeight() + 30}px;
+  margin: ${RFValue(5)}px ${RFValue(10)}px;
+  top: ${getStatusBarHeight()};
 `;
 
 export const Wrapper = styled.View`
   flex-direction: row;
 `;
 
-export const ImageWeather = styled.Image`
-  width: ${RFValue(180)}px;
-  height: ${RFValue(80)}px;
-  border-radius: ${RFValue(30)}px;
-`;
+// export const ImageWeather = styled.Image`
+//   width: ${RFValue(180)}px;
+//   height: ${RFValue(80)}px;
+//   border-radius: ${RFValue(30)}px;
+// `;
 
 export const ContainerInfo = styled.View`
   flex: 1;
   width: 100%;
-  top: 15%;
+  /* top: 15%; */
   justify-content: flex-start;
+  left: 10%;
   align-self: center;
 `;
 

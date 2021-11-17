@@ -1,9 +1,7 @@
 import React, {FC, useState} from 'react';
 import {Text} from 'react-native';
 
-import {Button, Input, Header} from '../../components';
-
-import SVGImg from '../../assets/svgs/banana.svg';
+import {Button, Input, Header, FruitIcon} from '../../components';
 
 import Colors from '../../utils/theme/colors';
 
@@ -29,7 +27,7 @@ export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
       <Header />
 
       <ContainerInfo>
-        <SVGImg width={200} height={200} />
+        <FruitIcon icon={data.name} width={200} height={200} />
 
         <Text>{data.name}</Text>
         <DescriptionInfo>{data.description}</DescriptionInfo>

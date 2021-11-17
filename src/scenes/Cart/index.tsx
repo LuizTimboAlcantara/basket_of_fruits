@@ -89,6 +89,7 @@ const CartMain: FC = () => {
             const newlist = currentData.filter(item => item.key !== fruit);
 
             await saveFruits(newlist);
+            setData(newlist);
           } catch (error) {
             Alert.alert('Não foi possível remover!');
           }
@@ -105,10 +106,10 @@ const CartMain: FC = () => {
     setPdfList(listAux.substring(0, listAux.length - 1));
   };
 
-  useEffect(() => {
-    setList();
-    handleGetFruits;
-  }, [data]);
+  // useEffect(() => {
+  //   setList();
+  //   handleGetFruits;
+  // }, [data]);
 
   useFocusEffect(
     useCallback(() => {
