@@ -8,7 +8,7 @@ export const fruits = [
     - A recomendação é consumir uma banana ao dia, preferencialmente no período matinal;${'\n'}
     - Pessoas com problemas renais e que precisam restringir o consumo de alimentos com potássio devem ingerir com moderação;${'\n'}
     - Há diversos tipos de bananas disponíveis para consumo, com sabores e características distintas, mas todas são nutritivas`,
-    image: require('../../assets/svgs/banana.svg'),
+    // image: '../../assets/svgs/banana.svg',
     value: 7,
   },
   {
@@ -21,7 +21,7 @@ export const fruits = [
       - Melhora o funcionamento do intestino;${'\n'}
       - Alivia dores de estômago;${'\n'}
     `,
-    image: require('../../assets/svgs/banana.svg'),
+    // image: '../../assets/svgs/maca.svg',
     value: 5,
   },
   {
@@ -34,7 +34,7 @@ export const fruits = [
     - Melhora o controle glicêmico;${'\n'}
     - Aumenta a saciedade;${'\n'}
   `,
-    image: require('../../assets/svgs/banana.svg'),
+    // image: '../../assets/svgs/pera.svg',
     value: 4,
   },
   {
@@ -47,7 +47,7 @@ export const fruits = [
     - Fortalece o organismo após os ecercícios;${'\n'}
     - Emagrece;${'\n'}
   `,
-    image: require('../../assets/svgs/banana.svg'),
+    // image: '../../assets/svgs/abacaxi.svg',
     value: 3,
   },
   {
@@ -60,7 +60,7 @@ export const fruits = [
     - Ajuda na imunidade;${'\n'}
     - Alivia a constipação;${'\n'}
   `,
-    image: require('../../assets/svgs/banana.svg'),
+    // image: '../../assets/svgs/manga.svg',
     value: 6,
   },
 ];

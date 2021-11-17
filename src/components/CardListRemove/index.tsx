@@ -29,7 +29,7 @@ const CardRemove: FC<Props> = ({
   console.log(data);
 
   return (
-    <Container onPress={() => handleRemove(key)} {...rest}>
+    <Container {...rest}>
       <Wrapper>
         <ContainerDelete>
           <SVGImg width={100} height={100} />
@@ -38,7 +38,7 @@ const CardRemove: FC<Props> = ({
           <Text>Fruta: {key}</Text>
           <Text>Valor: {qtd}</Text>
         </ContainerInfo>
-        <IconContainer>
+        <IconContainer onPress={() => handleRemove(key)}>
           <Icon name="cancel" />
         </IconContainer>
       </Wrapper>

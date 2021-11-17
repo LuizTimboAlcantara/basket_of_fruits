@@ -4,7 +4,7 @@ import {MaterialIcons} from '../../modules';
 
 import Colors from '../../utils/theme/colors';
 
-export const Container = styled.TouchableOpacity`
+export const Container = styled.View`
   width: 45%;
   background-color: ${Colors.shape};
   border-radius: ${RFValue(20)}px;
@@ -31,7 +31,7 @@ export const ContainerInfo = styled.View`
   align-self: center;
 `;
 
-export const IconContainer = styled.View``;
+export const IconContainer = styled.TouchableOpacity``;
 
 export const Icon = styled(MaterialIcons)`
   justify-content: flex-end;
