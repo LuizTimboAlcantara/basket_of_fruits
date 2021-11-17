@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, Alert} from 'react-native';
 
 import {CardListRemove, Button} from '../../components';
 

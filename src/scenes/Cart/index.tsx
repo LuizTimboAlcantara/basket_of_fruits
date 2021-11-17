@@ -1,5 +1,5 @@
 import React, {FC, useState, useContext, useCallback, useEffect} from 'react';
-import {Share} from 'react-native';
+import {Share, Alert} from 'react-native';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import {useFocusEffect} from '@react-navigation/native';
 
@@ -75,11 +75,26 @@ const CartMain: FC = () => {
   }
 
   async function handleRemove(fruit: string) {
-    const currentData = await getFruits();
+    Alert.alert('Remover', `Deseja remover do carrinho?`, [
+      {
+        text: 'Não',
+        style: 'cancel',
+      },
+      {
+        text: 'Sim',
+        onPress: async () => {
+          try {
+            const currentData = await getFruits();
 
-    const newlist = currentData.filter(item => item.key !== fruit);
+            const newlist = currentData.filter(item => item.key !== fruit);
 
-    await saveFruits(newlist);
+            await saveFruits(newlist);
+          } catch (error) {
+            Alert.alert('Não foi possível remover!');
+          }
+        },
+      },
+    ]);
   }
 
   const setList = async () => {
