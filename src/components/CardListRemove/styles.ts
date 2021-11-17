@@ -12,7 +12,7 @@ export const Container = styled.View`
   padding: ${RFValue(15)}px ${RFValue(10)}px;
   align-items: center;
   margin: ${RFValue(5)}px ${RFValue(10)}px;
-  top: ${getStatusBarHeight()};
+  top: ${getStatusBarHeight()}px;
 `;
 
 export const Wrapper = styled.View`

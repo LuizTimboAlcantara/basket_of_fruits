@@ -6,7 +6,7 @@ import {fruits} from '../../utils/fruits/fruits';
 
 import {CardList, InputSearch, Header} from '../../components';
 
-import {Container} from './styles';
+import {Container, CardDetailsList} from './styles';
 
 export function FruitsList() {
   const navigation = useNavigation();
@@ -38,7 +38,7 @@ export function FruitsList() {
       <Header />
       <InputSearch onChangeText={handleSearch} />
 
-      <FlatList
+      <CardDetailsList
         keyExtractor={item => item.key}
         data={data}
         renderItem={({item}) => (

@@ -12,7 +12,7 @@ export const Container = styled.View`
 `;
 
 export const Icon = styled(MaterialIcons)`
-  padding-top: ${getStatusBarHeight()};
+  padding-top: ${getStatusBarHeight()}px;
   margin-top: 20%;
   height: ${RFValue(60)}px;
   right: 20%;

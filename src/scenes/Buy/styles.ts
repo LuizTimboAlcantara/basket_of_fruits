@@ -1,15 +1,17 @@
 import styled from 'styled-components/native';
 import {RFValue} from 'react-native-responsive-fontsize';
+import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 
 export const Container = styled.ScrollView`
   flex: 1;
+  margin-top: ${getStatusBarHeight()}px;
 `;
 
 export const ContainerInfo = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  bottom: 20%;
+  bottom: 10%;
 `;
 
 export const DescriptionInfo = styled.Text`
@@ -20,10 +22,10 @@ export const DescriptionInfo = styled.Text`
 `;
 
 export const InputContainer = styled.View`
-  bottom: 10%;
+  bottom: 5%;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 0 ${RFValue(25)}px;
 `;
 

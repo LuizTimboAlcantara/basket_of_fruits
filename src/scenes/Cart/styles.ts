@@ -3,9 +3,9 @@ import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
 
 export const Container = styled.View`
   flex: 1;
-  margin-top: ${getStatusBarHeight()};
+  margin-top: ${getStatusBarHeight()}px;
 `;
 
 export const Footer = styled.View`
-  bottom: ${getBottomSpace()};
+  bottom: ${getBottomSpace()}px;
 `;
