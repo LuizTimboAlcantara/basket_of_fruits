@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 import FruitsContext from '../../contexts/cart';
+import {Header} from '../../components/Header';
 
 import {fruits} from '../../utils/fruits/fruits';
 
@@ -35,6 +36,7 @@ export function FruitsList() {
 
   return (
     <Container>
+      <Header />
       <InputSearch />
 
       <FlatList
