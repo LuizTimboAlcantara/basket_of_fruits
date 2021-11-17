@@ -1,15 +1,15 @@
-import React, {FC, useContext} from 'react';
+import React, {FC, useState, useContext, useCallback} from 'react';
 import {Share} from 'react-native';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
+import {useFocusEffect} from '@react-navigation/native';
 
 import FruitsContext from '../../contexts/cart';
-
-import {fruits} from '../../utils/fruits/fruits';
 
 import Cart from './Cart';
 
 const CartMain: FC = () => {
   const {getFruits, saveFruits} = useContext(FruitsContext);
+  const [data, setData] = useState();
 
   let path;
 
@@ -66,6 +66,12 @@ const CartMain: FC = () => {
     }
   };
 
+  async function handleGetFruits() {
+    const currentData = await getFruits();
+
+    setData(currentData);
+  }
+
   async function handleRemove(fruit: string) {
     const currentData = await getFruits();
 
@@ -74,7 +80,13 @@ const CartMain: FC = () => {
     await saveFruits(newlist);
   }
 
-  return <Cart data={fruits} handleRemove={handleRemove} onShare={onShare} />;
+  useFocusEffect(
+    useCallback(() => {
+      handleGetFruits();
+    }, []),
+  );
+
+  return <Cart data={data} handleRemove={handleRemove} onShare={onShare} />;
 };
 
 export default CartMain;

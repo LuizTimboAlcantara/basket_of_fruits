@@ -17,20 +17,31 @@ const BuyMain: FC<SignInProps> = props => {
 
   const {getFruits, saveFruits, removeAll} = useContext(FruitsContext);
 
-  console.log(data);
-
   async function handleAdd(item: AsyncFruitsProps) {
     const currentData = await getFruits();
 
-    console.log(currentData);
+    const validate = currentData.find(dado => dado.key === item.key);
 
-    const newData = [...currentData!, item];
+    if (validate !== undefined) {
+      const newDado = {
+        key: validate.key,
+        qtd: Number(validate.qtd) + Number(item.qtd),
+      };
 
-    await saveFruits(newData);
+      const newlist = currentData.filter(element => element.key !== item.key);
+
+      console.log(newlist);
+
+      const newData = [...newlist, newDado];
+
+      await saveFruits(newData);
+    } else {
+      const newData = [...currentData!, item];
+
+      await saveFruits(newData);
+    }
 
     // await removeAll();
-
-    console.log(item);
 
     handleFruitsList();
   }

@@ -13,13 +13,15 @@ import {
 } from './styles';
 
 interface Props extends TouchableOpacityProps {
-  data: FruitsProps;
+  data: {key: string; qtd: string};
   handleDetails?: () => void;
   handleRemove?: () => void;
 }
 
 const CardRemove: FC<Props> = ({data, handleDetails, ...rest}) => {
-  const {name, value} = data;
+  const {key, qtd} = data;
+
+  console.log(data);
 
   return (
     <Container onPress={handleDetails} {...rest}>
@@ -28,8 +30,8 @@ const CardRemove: FC<Props> = ({data, handleDetails, ...rest}) => {
           <SVGImg width={100} height={100} />
         </ContainerDelete>
         <ContainerInfo>
-          <Text>Fruta: {name}</Text>
-          <Text>Valor: {value}</Text>
+          <Text>Fruta: {key}</Text>
+          <Text>Valor: {qtd}</Text>
         </ContainerInfo>
         <IconContainer>
           <Icon name="cancel" />

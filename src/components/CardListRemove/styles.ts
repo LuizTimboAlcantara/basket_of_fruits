@@ -9,7 +9,7 @@ export const Container = styled.TouchableOpacity`
   flex: 1;
   background-color: ${Colors.shape};
   border-radius: ${RFValue(20)}px;
-  padding: ${RFValue(20)}px ${RFValue(20)}px;
+  padding: ${RFValue(90)}px ${RFValue(20)}px;
   align-items: center;
   margin: ${RFValue(5)}px ${RFValue(15)}px;
   top: ${getStatusBarHeight() + 30}px;
