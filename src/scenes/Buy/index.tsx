@@ -1,4 +1,5 @@
 import React, {FC, useContext} from 'react';
+import {Alert} from 'react-native';
 
 import FruitsContext from '../../contexts/cart';
 
@@ -18,6 +19,16 @@ const BuyMain: FC<SignInProps> = props => {
   const {getFruits, saveFruits, removeAll} = useContext(FruitsContext);
 
   async function handleAdd(item: AsyncFruitsProps) {
+    console.log(item);
+
+    if (!item.qtd) {
+      Alert.alert(
+        'É preciso adicionar uma quantidade para adicionar o item ao carrinho!',
+      );
+
+      return;
+    }
+
     const currentData = await getFruits();
 
     const validate = currentData.find(dado => dado.key === item.key);
