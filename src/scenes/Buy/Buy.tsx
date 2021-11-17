@@ -3,9 +3,17 @@ import {Text} from 'react-native';
 
 import {Button, Input, Header} from '../../components';
 
+import SVGImg from '../../assets/svgs/banana.svg';
+
 import Colors from '../../utils/theme/colors';
 
-import {Container, Footer, InputContainer} from './styles';
+import {
+  Container,
+  Footer,
+  InputContainer,
+  ContainerInfo,
+  DescriptionInfo,
+} from './styles';
 
 interface SignInProps {
   data: FruitsProps;
@@ -18,6 +26,13 @@ export const Buy: FC<SignInProps> = ({data, handleAdd}) => {
   return (
     <Container>
       <Header />
+
+      <ContainerInfo>
+        <SVGImg width={200} height={200} />
+
+        <Text>{data.name}</Text>
+        <DescriptionInfo>{data.description}</DescriptionInfo>
+      </ContainerInfo>
 
       <InputContainer>
         <Input
