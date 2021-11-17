@@ -54,7 +54,15 @@ const BuyMain: FC<SignInProps> = props => {
     );
   }
 
-  return <Buy data={data} handleAdd={handleAdd} />;
+  function handleTotalSum(value: string) {
+    const total = Number(data.value) * Number(value);
+
+    return String(total);
+  }
+
+  return (
+    <Buy data={data} handleAdd={handleAdd} handleTotalSum={handleTotalSum} />
+  );
 };
 
 export default BuyMain;

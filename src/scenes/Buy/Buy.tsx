@@ -18,9 +18,10 @@ import {
 interface SignInProps {
   data: FruitsProps;
   handleAdd: (item: AsyncFruitsProps) => Promise<void>;
+  handleTotalSum: (value: string) => string;
 }
 
-export const Buy: FC<SignInProps> = ({data, handleAdd}) => {
+export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
   const [quantidade, setQuantidade] = useState('');
 
   return (
@@ -42,7 +43,7 @@ export const Buy: FC<SignInProps> = ({data, handleAdd}) => {
           onChangeText={setQuantidade}
         />
         <Text>Valor Total: </Text>
-        <Text>R$ 100,00 </Text>
+        <Text>R$ {handleTotalSum(quantidade)}</Text>
       </InputContainer>
 
       <Footer>
