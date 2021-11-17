@@ -1,7 +1,32 @@
-import React from 'react';
+import React, {FC, useContext} from 'react';
+import Share from 'react-native-share';
 
-import {Container} from './styles';
+import FruitsContext from '../../contexts/cart';
 
-export function Cart() {
-  return <Container></Container>;
-}
+import {fruits} from '../../utils/fruits/fruits';
+
+import Cart from './Cart';
+
+const CartMain: FC = () => {
+  const {getFruits, saveFruits} = useContext(FruitsContext);
+
+  // Share.open()
+  //   .then(res => {
+  //     console.log('Sucesso');
+  //   })
+  //   .catch(err => {
+  //     err && console.log(err);
+  //   });
+
+  async function handleRemove(fruit: string) {
+    const currentData = await getFruits();
+
+    const newlist = currentData.filter(item => item.key !== fruit);
+
+    await saveFruits(newlist);
+  }
+
+  return <Cart data={fruits} handleRemove={handleRemove} />;
+};
+
+export default CartMain;

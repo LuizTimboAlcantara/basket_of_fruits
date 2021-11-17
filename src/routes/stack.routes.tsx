@@ -1,9 +1,8 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {SignIn, Buy} from '../scenes';
+import {Buy, Cart, SignIn} from '../scenes';
 import {FruitsList} from '../scenes/FruitsList';
-import {Cart} from '../scenes/Cart';
 
 const stackRoutes = createNativeStackNavigator();
 

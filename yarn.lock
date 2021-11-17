@@ -5642,6 +5642,11 @@ react-native-screens@^3.9.0:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
+react-native-share@^7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-share/-/react-native-share-7.2.1.tgz#cd52e3789d9dc7126f1420c78ee3629405ff97e4"
+  integrity sha512-fZIhwnPDWStjGOEFnbthAMvaldZ4kR1QHNbhr/fNsOcOxrS0gzU6djjg0pqdkPLrpXMl+CeaDU1Rzxl/cJjg2A==
+
 react-native-vector-icons@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-9.0.0.tgz#ab38ec6941f3f340d39846f1e8300e59863e2fb1"

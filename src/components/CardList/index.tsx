@@ -3,21 +3,14 @@ import {TouchableOpacityProps, Text} from 'react-native';
 
 import {Container, Wrapper} from './styles';
 
-interface Props {
-  key: string;
-  name: string;
-  description: string;
-  image: string;
-  value: number;
-}
-
 interface Props extends TouchableOpacityProps {
-  data: Props;
-  handleDetails: () => void;
+  data: FruitsProps;
+  handleDetails?: () => void;
+  handleRemove?: () => void;
 }
 
 const CardList: FC<Props> = ({data, handleDetails, ...rest}) => {
-  const {name, value, image} = data;
+  const {name, value} = data;
 
   return (
     <Container onPress={handleDetails} {...rest}>
