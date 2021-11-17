@@ -2,11 +2,10 @@ import React, {useContext, useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 import FruitsContext from '../../contexts/cart';
-import {Header} from '../../components/Header';
 
 import {fruits} from '../../utils/fruits/fruits';
 
-import {CardList, InputSearch} from '../../components';
+import {CardList, InputSearch, Header} from '../../components';
 
 import {Container} from './styles';
 
@@ -24,15 +23,6 @@ export function FruitsList() {
       }),
     );
   }
-
-  useEffect(() => {
-    async function teste() {
-      await getFruits();
-    }
-    const t = teste();
-
-    console.log(t);
-  }, []);
 
   return (
     <Container>

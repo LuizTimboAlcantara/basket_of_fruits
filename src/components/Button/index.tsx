@@ -5,11 +5,13 @@ import {Container, Title} from './styles';
 
 interface ButtonProps extends TouchableOpacityProps {
   title: string;
+  type: 'large' | 'medium';
+  color: string;
 }
 
-const Button: FC<ButtonProps> = ({title, ...rest}) => {
+const Button: FC<ButtonProps> = ({title, type, color, ...rest}) => {
   return (
-    <Container activeOpacity={0.7} {...rest}>
+    <Container type={type} color={color} activeOpacity={0.7} {...rest}>
       <Title>{title}</Title>
     </Container>
   );

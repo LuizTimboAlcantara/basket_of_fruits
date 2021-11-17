@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 
 import {Container, Icon} from './styles';
 
-export function Header() {
+const Header: FC = () => {
   const navigation = useNavigation();
 
   function handleFruitsList() {
@@ -21,4 +21,6 @@ export function Header() {
       </TouchableOpacity>
     </Container>
   );
-}
+};
+
+export default Header;

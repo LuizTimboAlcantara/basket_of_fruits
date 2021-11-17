@@ -3,6 +3,7 @@ import React, {FC} from 'react';
 import {Button, Input} from '../../components';
 
 import Texts from '../../utils/texts';
+import Colors from '../../utils/theme/colors';
 import LogoPng from '../../assets/images/logo.png';
 
 import {
@@ -34,10 +35,15 @@ export const SignIn: FC<SignInProps> = ({handleFruitsList}) => {
 
       <Footer>
         <FooterWrapper>
-          <Input placeholder="user" />
-          <Input placeholder="senha" />
+          <Input placeholder="user" type="large" />
+          <Input placeholder="senha" type="large" />
         </FooterWrapper>
-        <Button title="Entrar" onPress={handleFruitsList} />
+        <Button
+          title="Entrar"
+          type="large"
+          color={Colors.success}
+          onPress={handleFruitsList}
+        />
       </Footer>
     </Container>
   );

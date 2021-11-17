@@ -3,10 +3,12 @@ import {TextInputProps} from 'react-native';
 
 import {Container} from './styles';
 
-type Props = TextInputProps;
+interface Props extends TextInputProps {
+  type: 'large' | 'medium';
+}
 
-const Input: FC<Props> = ({...rest}) => {
-  return <Container {...rest} />;
+const Input: FC<Props> = ({type, ...rest}) => {
+  return <Container type={type} {...rest} />;
 };
 
 export default Input;
