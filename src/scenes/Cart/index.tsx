@@ -10,6 +10,7 @@ import Cart from './Cart';
 const CartMain: FC = () => {
   const {getFruits, saveFruits} = useContext(FruitsContext);
   const [data, setData] = useState();
+  const [pdfList, setPdfList] = useState('');
 
   let path;
 
@@ -26,6 +27,7 @@ const CartMain: FC = () => {
         <br>
         <br>
         <h3>
+        ${pdfList}
         <h3>
         <br>
         <br>
@@ -80,7 +82,16 @@ const CartMain: FC = () => {
     await saveFruits(newlist);
   }
 
+  const setList = async () => {
+    var listAux = '';
+    for (const x in data) {
+      listAux += ` Fruta: ${data[x].key}  Preço por kg: R$ ${data[x].qtd}  /`;
+    }
+    setPdfList(listAux.substring(0, listAux.length - 1));
+  };
+
   useEffect(() => {
+    setList();
     handleGetFruits;
   }, [data]);
 
