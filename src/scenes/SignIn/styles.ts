@@ -23,11 +23,7 @@ export const Header = styled.View`
 
 export const TitleWrapper = styled.View`
   align-items: center;
-`;
-
-export const Logo = styled.Image`
-  height: ${RFValue(110)}px;
-  width: ${RFValue(110)}px;
+  top: 10%;
 `;
 
 export const Title = styled.Text`
