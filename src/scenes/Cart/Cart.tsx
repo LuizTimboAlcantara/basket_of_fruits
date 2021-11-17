@@ -9,9 +9,10 @@ import {Container, Footer} from './styles';
 interface CartProps {
   data: FruitsProps;
   handleRemove: (fruit: string) => Promise<void>;
+  onShare: () => Promise<void>;
 }
 
-export const Cart: FC<CartProps> = ({data, handleRemove}) => {
+export const Cart: FC<CartProps> = ({data, handleRemove, onShare}) => {
   return (
     <Container>
       <FlatList
@@ -25,6 +26,7 @@ export const Cart: FC<CartProps> = ({data, handleRemove}) => {
           title="Gerar comprovate"
           color={Colors.secondary}
           type="large"
+          onPress={onShare}
         />
       </Footer>
     </Container>
