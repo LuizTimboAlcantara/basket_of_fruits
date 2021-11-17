@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {TouchableOpacityProps, Text} from 'react-native';
+import {TouchableOpacityProps} from 'react-native';
 
 import SVGImg from '../../assets/svgs/banana.svg';
 
@@ -7,6 +7,8 @@ import {
   Container,
   Wrapper,
   ContainerInfo,
+  TitleFruit,
+  TitleValue,
   IconContainer,
   ContainerDelete,
   Icon,
@@ -14,16 +16,10 @@ import {
 
 interface Props extends TouchableOpacityProps {
   data: {key: string; qtd: string};
-  handleDetails?: () => void;
   handleRemove: () => void;
 }
 
-const CardRemove: FC<Props> = ({
-  data,
-  handleDetails,
-  handleRemove,
-  ...rest
-}) => {
+const CardRemove: FC<Props> = ({data, handleRemove, ...rest}) => {
   const {key, qtd} = data;
 
   return (
@@ -33,8 +29,8 @@ const CardRemove: FC<Props> = ({
           <SVGImg width={100} height={100} />
         </ContainerDelete>
         <ContainerInfo>
-          <Text>Fruta: {key}</Text>
-          <Text>Valor: {qtd}</Text>
+          <TitleFruit>Fruta: {key}</TitleFruit>
+          <TitleValue>Valor: {qtd}</TitleValue>
         </ContainerInfo>
         <IconContainer onPress={handleRemove}>
           <Icon name="cancel" />

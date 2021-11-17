@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import {KeyboardAvoidingView} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 

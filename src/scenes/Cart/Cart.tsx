@@ -1,11 +1,9 @@
 import React, {FC} from 'react';
-import {FlatList, Text} from 'react-native';
-import {getBottomSpace} from 'react-native-iphone-x-helper';
 
 import {CardListRemove, Button} from '../../components';
 
 import Colors from '../../utils/theme/colors';
-import {Container, Title, Footer} from './styles';
+import {Container, Title, CardDetailsList, Footer} from './styles';
 
 interface CartProps {
   data: FruitsProps;
@@ -17,9 +15,8 @@ export const Cart: FC<CartProps> = ({data, handleRemove, onShare}) => {
   return (
     <Container>
       <Title>Minha Lista</Title>
-      <FlatList
+      <CardDetailsList
         keyExtractor={item => item.key}
-        style={{marginBottom: getBottomSpace() + 5}}
         data={data}
         renderItem={({item}) => (
           <CardListRemove data={item} handleRemove={handleRemove} />

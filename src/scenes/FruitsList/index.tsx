@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {FlatList} from 'react-native';
+import React, {useState} from 'react';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 
 import {fruits} from '../../utils/fruits/fruits';

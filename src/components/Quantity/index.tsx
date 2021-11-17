@@ -1,12 +1,11 @@
-import React, {useState, useContext, useCallback} from 'react';
-import {Text} from 'react-native';
+import React, {FC, useState, useContext, useCallback} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 
 import FruitsContext from '../../contexts/cart';
 
-import {Container} from './styles';
+import {Container, Count} from './styles';
 
-export default function Quantity() {
+const Quantity: FC = () => {
   const {getFruits} = useContext(FruitsContext);
 
   const [qtdItens, setQtdItens] = useState<Number>();
@@ -25,7 +24,9 @@ export default function Quantity() {
 
   return (
     <Container>
-      <Text>{qtdItens}</Text>
+      <Count>{qtdItens}</Count>
     </Container>
   );
-}
+};
+
+export default Quantity;

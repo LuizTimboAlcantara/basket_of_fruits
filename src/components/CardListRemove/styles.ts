@@ -19,16 +19,9 @@ export const Wrapper = styled.View`
   flex-direction: row;
 `;
 
-// export const ImageWeather = styled.Image`
-//   width: ${RFValue(180)}px;
-//   height: ${RFValue(80)}px;
-//   border-radius: ${RFValue(30)}px;
-// `;
-
 export const ContainerInfo = styled.View`
   flex: 1;
   width: 100%;
-  /* top: 15%; */
   justify-content: flex-start;
   left: 10%;
   align-self: center;
@@ -37,6 +30,10 @@ export const ContainerInfo = styled.View`
 export const IconContainer = styled.TouchableOpacity``;
 
 export const ContainerDelete = styled.View``;
+
+export const TitleFruit = styled.Text``;
+
+export const TitleValue = styled.Text``;
 
 export const Icon = styled(MaterialIcons)`
   justify-content: flex-end;

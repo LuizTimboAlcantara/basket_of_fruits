@@ -15,3 +15,5 @@ export const Container = styled.View`
   top: ${getStatusBarHeight()}px;
   z-index: 999;
 `;
+
+export const Count = styled.Text``;

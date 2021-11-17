@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 
 import {Banana, Apple, Pineapple, Pear, Mango} from '../../assets/svgs';
 
@@ -10,7 +10,7 @@ interface FruitIconProps {
   height: number;
 }
 
-export default function FruitIcon({icon, width, height}: FruitIconProps) {
+const FruitIcon: FC<FruitIconProps> = ({icon, width, height}) => {
   return (
     <Container>
       {icon === 'Banana' && <Banana width={width} height={height} />}
@@ -20,4 +20,6 @@ export default function FruitIcon({icon, width, height}: FruitIconProps) {
       {icon === 'Manga' && <Banana width={width} height={height} />}
     </Container>
   );
-}
+};
+
+export default FruitIcon;
