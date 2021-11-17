@@ -13,11 +13,21 @@ interface FruitIconProps {
 const FruitIcon: FC<FruitIconProps> = ({icon, width, height}) => {
   return (
     <Container>
-      {icon === 'Banana' && <Banana width={width} height={height} />}
-      {icon === 'Maçã' && <Apple width={width} height={height} />}
-      {icon === 'Pêra' && <Pear width={width} height={height} />}
-      {icon === 'Abacaxi' && <Pineapple width={width} height={height} />}
-      {icon === 'Manga' && <Mango width={width} height={height} />}
+      {(icon === 'Banana' || icon === 'banana') && (
+        <Banana width={width} height={height} />
+      )}
+      {(icon === 'Maçã' || icon === 'maca') && (
+        <Apple width={width} height={height} />
+      )}
+      {(icon === 'Pêra' || icon === 'pera') && (
+        <Pear width={width} height={height} />
+      )}
+      {(icon === 'Abacaxi' || icon === 'abacaxi') && (
+        <Pineapple width={width} height={height} />
+      )}
+      {(icon === 'Manga' || icon === 'manga') && (
+        <Mango width={width} height={height} />
+      )}
     </Container>
   );
 };

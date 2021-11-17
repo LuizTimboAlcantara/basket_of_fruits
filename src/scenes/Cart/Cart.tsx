@@ -19,7 +19,7 @@ export const Cart: FC<CartProps> = ({data, handleRemove, onShare}) => {
         keyExtractor={item => item.key}
         data={data}
         renderItem={({item}) => (
-          <CardListRemove data={item} handleRemove={handleRemove} />
+          <CardListRemove data={item} handleRemove={() => handleRemove(item)} />
         )}
       />
 

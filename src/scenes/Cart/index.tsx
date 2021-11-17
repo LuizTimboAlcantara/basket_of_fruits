@@ -83,18 +83,18 @@ const CartMain: FC = () => {
       {
         text: 'Sim',
         onPress: async () => {
-          await removeAll();
+          // await removeAll();
+          try {
+            const currentData = await getFruits();
 
-          // try {
-          //   const currentData = await getFruits();
+            const newlist = currentData.filter(item => item.key !== fruit.key);
 
-          //   const newlist = currentData.filter(item => item.key !== fruit);
+            await saveFruits(newlist);
 
-          //   await saveFruits(newlist);
-          //   setData(newlist);
-          // } catch (error) {
-          //   Alert.alert('Não foi possível remover!');
-          // }
+            setData(newlist);
+          } catch (error) {
+            Alert.alert('Não foi possível remover!');
+          }
         },
       },
     ]);

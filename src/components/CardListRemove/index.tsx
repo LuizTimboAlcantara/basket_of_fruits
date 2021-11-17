@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {TouchableOpacityProps} from 'react-native';
 
-import SVGImg from '../../assets/svgs/banana.svg';
+import FruitIcon from '../FruitIcon';
 
 import {
   Container,
@@ -26,7 +26,7 @@ const CardRemove: FC<Props> = ({data, handleRemove, ...rest}) => {
     <Container {...rest}>
       <Wrapper>
         <ContainerDelete>
-          <SVGImg width={100} height={100} />
+          <FruitIcon icon={key} width={100} height={100} />
         </ContainerDelete>
         <ContainerInfo>
           <TitleFruit>Fruta: {key}</TitleFruit>
