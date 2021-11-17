@@ -8,7 +8,7 @@ import FruitsContext from '../../contexts/cart';
 import Cart from './Cart';
 
 const CartMain: FC = () => {
-  const {getFruits, saveFruits} = useContext(FruitsContext);
+  const {getFruits, saveFruits, removeAll} = useContext(FruitsContext);
   const [data, setData] = useState();
   const [pdfList, setPdfList] = useState('');
 
@@ -83,16 +83,18 @@ const CartMain: FC = () => {
       {
         text: 'Sim',
         onPress: async () => {
-          try {
-            const currentData = await getFruits();
+          await removeAll();
 
-            const newlist = currentData.filter(item => item.key !== fruit);
+          // try {
+          //   const currentData = await getFruits();
 
-            await saveFruits(newlist);
-            setData(newlist);
-          } catch (error) {
-            Alert.alert('Não foi possível remover!');
-          }
+          //   const newlist = currentData.filter(item => item.key !== fruit);
+
+          //   await saveFruits(newlist);
+          //   setData(newlist);
+          // } catch (error) {
+          //   Alert.alert('Não foi possível remover!');
+          // }
         },
       },
     ]);
@@ -106,10 +108,10 @@ const CartMain: FC = () => {
     setPdfList(listAux.substring(0, listAux.length - 1));
   };
 
-  // useEffect(() => {
-  //   setList();
-  //   handleGetFruits;
-  // }, [data]);
+  useEffect(() => {
+    setList();
+    handleGetFruits;
+  }, [data]);
 
   useFocusEffect(
     useCallback(() => {

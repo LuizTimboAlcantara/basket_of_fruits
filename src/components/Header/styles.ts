@@ -9,6 +9,8 @@ export const Container = styled.View`
   flex: 1;
   justify-content: flex-end;
   align-self: flex-end;
+  margin-top: 2%;
+  margin-right: 2%;
 `;
 
 export const Icon = styled(MaterialIcons)`
