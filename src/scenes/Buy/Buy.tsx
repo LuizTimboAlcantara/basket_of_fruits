@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import {Button, Input, Header, FruitIcon, Goback} from '../../components';
+import {Button, Input, FruitIcon, Goback} from '../../components';
 
 import {FormattedMoney} from '../../utils/formatted/money';
 

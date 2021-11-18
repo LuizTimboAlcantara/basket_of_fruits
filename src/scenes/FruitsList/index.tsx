@@ -1,13 +1,11 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 
 import {fruits} from '../../utils/fruits/fruits';
 
-import {CardList, InputSearch, Header} from '../../components';
+import FruistList from './FruistList';
 
-import {Container, CardDetailsList} from './styles';
-
-export function FruitsList() {
+const FruitsListMain: FC = () => {
   const navigation = useNavigation();
   const [data, setData] = useState(fruits);
 
@@ -33,18 +31,12 @@ export function FruitsList() {
   }
 
   return (
-    <Container>
-      <Header />
-      <InputSearch onChangeText={handleSearch} />
-
-      <CardDetailsList
-        keyExtractor={item => item.key}
-        data={data}
-        renderItem={({item}) => (
-          <CardList data={item} handleDetails={() => handleDatails(item)} />
-        )}
-        numColumns={2}
-      />
-    </Container>
+    <FruistList
+      data={data}
+      handleSearch={handleSearch}
+      handleDatails={handleDatails}
+    />
   );
-}
+};
+
+export default FruitsListMain;
