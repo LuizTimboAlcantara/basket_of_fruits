@@ -28,7 +28,12 @@ const CartMain: FC = () => {
         <br>
         <h3>
         ${pdfList}
-        <h3>
+        </h3>
+        <div>
+        <h2 class="right-align">
+        Total: R$ 100,00
+        </h2>
+        </div>
         <br>
         <br>
         <h3>
@@ -103,7 +108,38 @@ const CartMain: FC = () => {
   const setList = async () => {
     var listAux = '';
     for (const x in data) {
-      listAux += ` Fruta: ${data[x].key}  Preço por kg: R$ ${data[x].qtd}  /`;
+      listAux += `
+
+
+<div class="container">
+<p class="help" style="color:#ffffff;">
+  Please review your bill and pay </p>
+<div class="box card-panel z-depth-3">
+  <div class="invoice">
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th>Quantidade</th>
+          <th>Fruta</th>
+          <th class="right-align">Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>${data[x].qtd}</td>
+          <td>${data[x].key}</td>
+          </tr>
+          <tr>
+          <td></td>
+          <td class="right-align bold">Total:</td>
+          <td class="right-align bold">R$6.75</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+     `;
     }
     setPdfList(listAux.substring(0, listAux.length - 1));
   };
