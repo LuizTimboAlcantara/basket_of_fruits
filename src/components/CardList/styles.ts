@@ -29,9 +29,14 @@ export const IconContainer = styled.TouchableOpacity`
   bottom: 15%;
 `;
 
-export const TitleFruits = styled.Text``;
+export const TitleFruits = styled.Text`
+  margin-left: 5%;
+`;
 
-export const ValueTitle = styled.Text``;
+export const ValueTitle = styled.Text`
+  margin-left: 5%;
+  margin-top: 3%;
+`;
 
 export const Icon = styled(MaterialIcons)`
   align-self: flex-end;
