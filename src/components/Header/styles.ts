@@ -19,14 +19,14 @@ export const IconCart = styled(MaterialIcons)`
   margin-top: 20%;
   height: ${RFValue(60)}px;
   right: 20%;
-  font-size: ${RFValue(35)}px;
+  font-size: ${RFValue(28)}px;
   color: ${Colors.success};
 `;
 
 export const IconExit = styled(MaterialIcons)`
   padding-top: ${getStatusBarHeight()}px;
-  margin-top: 35%;
+  margin-top: 25%;
   height: ${RFValue(60)}px;
-  font-size: ${RFValue(30)}px;
+  font-size: ${RFValue(28)}px;
   color: ${Colors.text};
 `;

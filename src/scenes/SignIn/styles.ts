@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 import {RFValue, RFPercentage} from 'react-native-responsive-fontsize';
 
+import {Logo} from '../../assets/svgs';
+
 import Colors from '../../utils/theme/colors';
 
 export const Container = styled.View`
@@ -19,6 +21,11 @@ export const Header = styled.View`
   background-color: ${Colors.primary};
   justify-content: flex-end;
   align-items: center;
+`;
+
+export const IconLogo = styled(Logo)`
+  width: ${RFValue(250)}px;
+  height: ${RFValue(250)}px;
 `;
 
 export const TitleWrapper = styled.View`

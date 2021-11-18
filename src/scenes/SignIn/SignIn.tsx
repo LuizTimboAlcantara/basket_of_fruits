@@ -5,11 +5,10 @@ import {Button, Input} from '../../components';
 import Texts from '../../utils/texts';
 import Colors from '../../utils/theme/colors';
 
-import {Logo} from '../../assets/svgs';
-
 import {
   Container,
   Header,
+  IconLogo,
   TitleWrapper,
   Title,
   SignInTitle,
@@ -26,7 +25,7 @@ export const SignIn: FC<SignInProps> = ({handleFruitsList}) => {
     <Container>
       <Header>
         <TitleWrapper>
-          <Logo width={250} height={250} />
+          <IconLogo />
         </TitleWrapper>
 
         <Title>{Texts.TITLELOGIN}</Title>

@@ -10,6 +10,7 @@ import Cart from './Cart';
 const CartMain: FC = () => {
   const {getFruits, saveFruits, removeAll} = useContext(FruitsContext);
   const [data, setData] = useState();
+  const [hasItens, setHasItens] = useState(false);
   const [pdfList, setPdfList] = useState('');
 
   let path;
@@ -75,6 +76,10 @@ const CartMain: FC = () => {
 
   async function handleGetFruits() {
     const currentData = await getFruits();
+
+    if (currentData.length > 0) {
+      setHasItens(true);
+    }
 
     setData(currentData);
   }
@@ -155,7 +160,14 @@ const CartMain: FC = () => {
     }, []),
   );
 
-  return <Cart data={data} handleRemove={handleRemove} onShare={onShare} />;
+  return (
+    <Cart
+      data={data}
+      hasItens={hasItens}
+      handleRemove={handleRemove}
+      onShare={onShare}
+    />
+  );
 };
 
 export default CartMain;
