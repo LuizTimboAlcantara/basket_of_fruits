@@ -1,9 +1,11 @@
 import styled from 'styled-components/native';
+import {Input} from '../../components';
 import {RFValue} from 'react-native-responsive-fontsize';
 
 export const Container = styled.View`
   flex: 1;
   justify-content: center;
+  margin-top: 5%;
 `;
 
 export const ContainerInfo = styled.View`
@@ -23,7 +25,7 @@ export const InputContainer = styled.View`
   bottom: 5%;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 0 ${RFValue(25)}px;
 `;
 
@@ -37,4 +39,11 @@ export const TitleName = styled.Text`
   margin-top: ${RFValue(15)}px;
 `;
 
-export const TitleValue = styled.Text``;
+export const InputValue = styled(Input)`
+  margin-left: 5%;
+  padding: ${RFValue(15)}px ${RFValue(25)}px;
+`;
+
+export const TitleValue = styled.Text`
+  padding: 0 ${RFValue(25)}px;
+`;

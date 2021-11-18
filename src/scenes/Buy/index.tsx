@@ -65,6 +65,10 @@ const BuyMain: FC<SignInProps> = props => {
   function handleTotalSum(value: string) {
     const total = Number(data.value) * Number(value);
 
+    if (value.length > 5) {
+      Alert.alert('O limite máximo é de 99999kg');
+    }
+
     return FormattedMoney(total);
   }
 

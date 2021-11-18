@@ -19,6 +19,7 @@ import {
   ContainerInfo,
   DescriptionInfo,
   TitleName,
+  InputValue,
   TitleValue,
 } from './styles';
 
@@ -49,14 +50,14 @@ export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
           </ContainerInfo>
 
           <InputContainer>
-            <Input
+            <InputValue
               placeholder="kg"
               type="small"
               keyboardType="numeric"
               onChangeText={setQuantidade}
             />
             <TitleValue>
-              Valor Total:
+              Total:
               {handleTotalSum(quantidade)}
             </TitleValue>
           </InputContainer>

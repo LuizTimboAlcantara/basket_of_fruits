@@ -7,10 +7,11 @@ import Colors from '../../utils/theme/colors';
 export const Container = styled.View`
   flex: 1;
   justify-content: flex-start;
+  align-self: flex-start;
 `;
 
 export const IconBack = styled(MaterialIcons)`
-  margin-top: 15%;
+  margin-top: 25%;
   height: ${RFValue(40)}px;
   font-size: ${RFValue(40)}px;
   color: ${Colors.text};

@@ -10,7 +10,9 @@ export const Container = styled.View`
   margin-bottom: ${getBottomSpace()}px;
 `;
 
-export const Content = styled.View``;
+export const Content = styled.View`
+  align-items: center;
+`;
 
 export const WrapperHasItens = styled.View`
   flex: 1;
