@@ -1,6 +1,8 @@
 import React, {FC} from 'react';
 import {TouchableOpacityProps} from 'react-native';
 
+import {handleSum} from '../../utils/formatted/money';
+
 import FruitIcon from '../FruitIcon';
 
 import {
@@ -9,18 +11,19 @@ import {
   ContainerInfo,
   TitleFruit,
   TitleValue,
+  TitleValueTotal,
   IconContainer,
   ContainerDelete,
   Icon,
 } from './styles';
 
 interface Props extends TouchableOpacityProps {
-  data: {key: string; qtd: string};
+  data: AsyncFruitsProps;
   handleRemove: () => void;
 }
 
 const CardRemove: FC<Props> = ({data, handleRemove, ...rest}) => {
-  const {key, qtd} = data;
+  const {key, qtd, valueUnit} = data;
 
   return (
     <Container {...rest}>
@@ -30,7 +33,10 @@ const CardRemove: FC<Props> = ({data, handleRemove, ...rest}) => {
         </ContainerDelete>
         <ContainerInfo>
           <TitleFruit>Fruta: {key}</TitleFruit>
-          <TitleValue>Valor: {qtd}</TitleValue>
+          <TitleValue>Quantidade: {qtd}</TitleValue>
+          <TitleValueTotal>
+            Valor Total: {handleSum(qtd, valueUnit)}
+          </TitleValueTotal>
         </ContainerInfo>
         <IconContainer onPress={handleRemove}>
           <Icon name="cancel" />

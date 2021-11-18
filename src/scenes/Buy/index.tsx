@@ -36,6 +36,7 @@ const BuyMain: FC<SignInProps> = props => {
       const newDado = {
         key: validate.key,
         qtd: Number(validate.qtd) + Number(item.qtd),
+        valueUnit: validate.valueUnit,
       };
 
       const newlist = currentData.filter(element => element.key !== item.key);

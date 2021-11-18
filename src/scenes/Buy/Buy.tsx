@@ -67,7 +67,13 @@ export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
               title="Adicionar ao carrinho"
               type="large"
               color={Colors.secondary}
-              onPress={() => handleAdd({key: data.key, qtd: quantidade})}
+              onPress={() =>
+                handleAdd({
+                  key: data.key,
+                  qtd: quantidade,
+                  valueUnit: data.value,
+                })
+              }
             />
           </Footer>
         </Container>

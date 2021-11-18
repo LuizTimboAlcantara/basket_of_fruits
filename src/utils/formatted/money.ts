@@ -8,3 +8,9 @@ export function FormattedMoney(value: number | string) {
     currency: 'BRL',
   });
 }
+
+export function handleSum(qtd: string, value: string) {
+  const valueTotal = Number(qtd) * Number(value);
+
+  return FormattedMoney(valueTotal);
+}

@@ -1,4 +1,6 @@
-export function TemplateProofMain(dados: string) {
+import {FormattedMoney} from '../formatted/money';
+
+export function TemplateProofMain(dados: string, totalCart: number) {
   return `<html>
   <head>
      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
@@ -10,11 +12,11 @@ export function TemplateProofMain(dados: string) {
      <br>
      <br>
      <h3>
-        ${dados}
+        ${FormattedMoney(dados)}
      </h3>
      <div>
         <h2 class="right-align">
-           Total: R$ 100,00
+           Total: ${FormattedMoney(totalCart)}
         </h2>
      </div>
      <br>
@@ -26,7 +28,7 @@ export function TemplateProofMain(dados: string) {
   `;
 }
 
-export function TemplateProofSecudary(key: string, qtd: string) {
+export function TemplateProofSecudary(key: string, qtd: string, total: string) {
   return `
   <div class="container">
   <p class="help" style="color:#ffffff;">
@@ -50,7 +52,7 @@ export function TemplateProofSecudary(key: string, qtd: string) {
               <tr>
                  <td></td>
                  <td class="right-align bold">Total:</td>
-                 <td class="right-align bold">R$6.75</td>
+                 <td class="right-align bold">${total}</td>
               </tr>
            </tbody>
         </table>

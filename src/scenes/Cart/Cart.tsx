@@ -1,6 +1,8 @@
 import React, {FC} from 'react';
 import {CardListRemove, Button, Goback} from '../../components';
 
+import {FormattedMoney} from '../../utils/formatted/money';
+
 import Texts from '../../utils/texts';
 import Colors from '../../utils/theme/colors';
 
@@ -19,6 +21,7 @@ import {
 interface CartProps {
   data: FruitsProps;
   hasItens: boolean;
+  totalCart: string;
   handleRemove: (fruit: string) => Promise<void>;
   onShare: () => Promise<void>;
 }
@@ -26,6 +29,7 @@ interface CartProps {
 export const Cart: FC<CartProps> = ({
   data,
   hasItens,
+  totalCart,
   handleRemove,
   onShare,
 }) => {
@@ -33,7 +37,7 @@ export const Cart: FC<CartProps> = ({
     <Container>
       <Content>
         <Goback />
-        <Title>Minha Lista</Title>
+        <Title>Minha Lista - {FormattedMoney(totalCart)}</Title>
       </Content>
 
       {!hasItens ? (

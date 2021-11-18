@@ -31,9 +31,20 @@ export const IconContainer = styled.TouchableOpacity``;
 
 export const ContainerDelete = styled.View``;
 
-export const TitleFruit = styled.Text``;
+export const TitleFruit = styled.Text`
+  font-size: ${RFValue(15)}px;
+`;
 
-export const TitleValue = styled.Text``;
+export const TitleValue = styled.Text`
+  font-size: ${RFValue(15)}px;
+  margin-top: ${RFValue(5)}px;
+`;
+
+export const TitleValueTotal = styled.Text`
+  font-size: ${RFValue(15)}px;
+  margin-top: ${RFValue(5)}px;
+  font-weight: bold;
+`;
 
 export const Icon = styled(MaterialIcons)`
   justify-content: flex-end;

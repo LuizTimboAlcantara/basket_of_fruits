@@ -30,7 +30,7 @@ export const Title = styled.Text`
   font-size: ${RFValue(20)}px;
   justify-content: center;
   align-self: center;
-  margin-top: 5%;
+  margin-top: 7%;
 `;
 
 export const Icon = styled(Cesta)`
