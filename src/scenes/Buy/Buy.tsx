@@ -1,4 +1,6 @@
 import React, {FC, useState} from 'react';
+import {TouchableWithoutFeedback, Keyboard} from 'react-native';
+
 import {Button, Input, FruitIcon, Goback} from '../../components';
 
 import {FormattedMoney} from '../../utils/formatted/money';
@@ -25,40 +27,42 @@ export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
   const [quantidade, setQuantidade] = useState('');
 
   return (
-    <Container>
-      <Goback />
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <Container>
+        <Goback />
 
-      <ContainerInfo>
-        <FruitIcon icon={data.name} width={200} height={200} />
+        <ContainerInfo>
+          <FruitIcon icon={data.name} width={200} height={200} />
 
-        <TitleName>
-          {data.name} - {FormattedMoney(data.value)}/kg
-        </TitleName>
-        <DescriptionInfo>{data.description}</DescriptionInfo>
-      </ContainerInfo>
+          <TitleName>
+            {data.name} - {FormattedMoney(data.value)}/kg
+          </TitleName>
+          <DescriptionInfo>{data.description}</DescriptionInfo>
+        </ContainerInfo>
 
-      <InputContainer>
-        <Input
-          placeholder="kg"
-          type="small"
-          keyboardType="numeric"
-          onChangeText={setQuantidade}
-        />
-        <TitleValue>
-          Valor Total:
-          {handleTotalSum(quantidade)}
-        </TitleValue>
-      </InputContainer>
+        <InputContainer>
+          <Input
+            placeholder="kg"
+            type="small"
+            keyboardType="numeric"
+            onChangeText={setQuantidade}
+          />
+          <TitleValue>
+            Valor Total:
+            {handleTotalSum(quantidade)}
+          </TitleValue>
+        </InputContainer>
 
-      <Footer>
-        <Button
-          title="Adicionar ao carrinho"
-          type="large"
-          color={Colors.secondary}
-          onPress={() => handleAdd({key: data.key, qtd: quantidade})}
-        />
-      </Footer>
-    </Container>
+        <Footer>
+          <Button
+            title="Adicionar ao carrinho"
+            type="large"
+            color={Colors.secondary}
+            onPress={() => handleAdd({key: data.key, qtd: quantidade})}
+          />
+        </Footer>
+      </Container>
+    </TouchableWithoutFeedback>
   );
 };
 

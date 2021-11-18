@@ -3,44 +3,26 @@ import {Share, Alert} from 'react-native';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import {useFocusEffect} from '@react-navigation/native';
 
+import {
+  TemplateProofMain,
+  TemplateProofSecudary,
+} from '../../utils/templates/proof';
+
 import FruitsContext from '../../contexts/cart';
 
 import Cart from './Cart';
 
 const CartMain: FC = () => {
   const {getFruits, saveFruits, removeAll} = useContext(FruitsContext);
+
   const [data, setData] = useState();
   const [hasItens, setHasItens] = useState(false);
   const [pdfList, setPdfList] = useState('');
-
-  let path;
+  const [path, setPath] = useState<string>();
 
   async function handleGenerate() {
     let options = {
-      html: `<html>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-      </head>
-      <body style="text-align: center;">
-        <h1 style="font-size: 40px; font-family: Helvetica Neue; font-weight: normal;">
-          COMPROVANTE DE COMPRA
-        </h1>
-        <br>
-        <br>
-        <h3>
-        ${pdfList}
-        </h3>
-        <div>
-        <h2 class="right-align">
-        Total: R$ 100,00
-        </h2>
-        </div>
-        <br>
-        <br>
-        <h3>
-        </h3>
-      </body>
-    </html>`,
+      html: TemplateProofMain(pdfList),
       fileName: 'Comprovante de Compra',
       directory: 'Documents',
     };
@@ -49,26 +31,27 @@ const CartMain: FC = () => {
     // console.log(file.filePath);
     console.log(file.filePath);
 
-    path = file.filePath;
+    setPath(file.filePath);
   }
 
   const onShare = async () => {
     try {
       await handleGenerate();
 
-      const result = await Share.share({
+      // const result =
+      await Share.share({
         url: path,
         message: 'Comprovante de Compra',
       });
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          // shared with activity type of result.activityType
-        } else {
-          // shared
-        }
-      } else if (result.action === Share.dismissedAction) {
-        // dismissed
-      }
+      // if (result.action === Share.sharedAction) {
+      //   if (result.activityType) {
+      //     // shared with activity type of result.activityType
+      //   } else {
+      //     // shared
+      //   }
+      // } else if (result.action === Share.dismissedAction) {
+      //   // dismissed
+      // }
     } catch (error) {
       console.log(error.message);
     }
@@ -92,59 +75,29 @@ const CartMain: FC = () => {
       },
       {
         text: 'Sim',
-        onPress: async () => {
-          // await removeAll();
-          try {
-            const currentData = await getFruits();
-
-            const newlist = currentData.filter(item => item.key !== fruit.key);
-
-            await saveFruits(newlist);
-
-            setData(newlist);
-          } catch (error) {
-            Alert.alert('Não foi possível remover!');
-          }
-        },
+        onPress: async () => await remove(fruit),
       },
     ]);
+  }
+
+  async function remove(fruit: string) {
+    try {
+      const currentData = await getFruits();
+
+      const newlist = currentData.filter(item => item.key !== fruit.key);
+
+      await saveFruits(newlist);
+
+      setData(newlist);
+    } catch (error) {
+      Alert.alert('Não foi possível remover!');
+    }
   }
 
   const setList = async () => {
     var listAux = '';
     for (const x in data) {
-      listAux += `
-
-
-<div class="container">
-<p class="help" style="color:#ffffff;">
-  Please review your bill and pay </p>
-<div class="box card-panel z-depth-3">
-  <div class="invoice">
-    <table class="highlight">
-      <thead>
-        <tr>
-          <th>Quantidade</th>
-          <th>Fruta</th>
-          <th class="right-align">Preço</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>${data[x].qtd}</td>
-          <td>${data[x].key}</td>
-          </tr>
-          <tr>
-          <td></td>
-          <td class="right-align bold">Total:</td>
-          <td class="right-align bold">R$6.75</td>
-          </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-</div>
-     `;
+      listAux += TemplateProofSecudary(data[x].qtd, data[x].key);
     }
     setPdfList(listAux.substring(0, listAux.length - 1));
   };
