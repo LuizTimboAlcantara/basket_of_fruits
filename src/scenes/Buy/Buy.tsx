@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import {Button, Input, Header, FruitIcon} from '../../components';
+import {Button, Input, Header, FruitIcon, Goback} from '../../components';
 
 import {FormattedMoney} from '../../utils/formatted/money';
 
@@ -26,7 +26,7 @@ export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
 
   return (
     <Container>
-      <Header />
+      <Goback />
 
       <ContainerInfo>
         <FruitIcon icon={data.name} width={200} height={200} />

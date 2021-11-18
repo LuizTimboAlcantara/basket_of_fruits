@@ -9,6 +9,8 @@ export const Container = styled.View`
   margin-bottom: ${getBottomSpace()}px;
 `;
 
+export const Content = styled.View``;
+
 export const Title = styled.Text`
   font-weight: bold;
   font-size: 20px;

@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 
-import {CardListRemove, Button} from '../../components';
+import {CardListRemove, Button, Goback} from '../../components';
 
 import Colors from '../../utils/theme/colors';
-import {Container, Title, CardDetailsList, Footer} from './styles';
+import {Container, Content, Title, CardDetailsList, Footer} from './styles';
 
 interface CartProps {
   data: FruitsProps;
@@ -14,7 +14,10 @@ interface CartProps {
 export const Cart: FC<CartProps> = ({data, handleRemove, onShare}) => {
   return (
     <Container>
-      <Title>Minha Lista</Title>
+      <Content>
+        <Goback />
+        <Title>Minha Lista</Title>
+      </Content>
       <CardDetailsList
         keyExtractor={item => item.key}
         data={data}

@@ -6,3 +6,4 @@ export {default as InputSearch} from './InputSearch';
 export {default as Header} from './Header';
 export {default as FruitIcon} from './FruitIcon';
 export {default as Quantity} from './Quantity';
+export {default as Goback} from './Goback';

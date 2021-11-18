@@ -2,13 +2,12 @@ import styled from 'styled-components/native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 
-export const Container = styled.ScrollView`
+export const Container = styled.View`
   flex: 1;
   margin-top: ${getStatusBarHeight()}px;
 `;
 
 export const ContainerInfo = styled.View`
-  flex: 1;
   justify-content: center;
   align-items: center;
   bottom: 10%;
