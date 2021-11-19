@@ -10,7 +10,23 @@ export function FormattedMoney(value: number | string) {
 }
 
 export function handleSum(qtd: string, value: string) {
-  const valueTotal = Number(qtd) * Number(value);
+  const valueTotal = parseFloat(qtd) + parseFloat(value);
 
-  return FormattedMoney(valueTotal);
+  return valueTotal;
+}
+
+export function handleMult(qtd: string, value: string) {
+  const valueTotal = parseFloat(qtd) * parseFloat(value);
+
+  return valueTotal;
+}
+
+export function verifyFloat(value: string) {
+  if (!/^\d+(?:\.\d+)?$/.test(value)) {
+    const valueFormatted = value.toString().replace(',', '.');
+
+    return valueFormatted;
+  } else {
+    return value;
+  }
 }

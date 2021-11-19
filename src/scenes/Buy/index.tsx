@@ -4,7 +4,12 @@ import {Alert} from 'react-native';
 import FruitsContext from '../../contexts/cart';
 
 import {CommonActions, useNavigation} from '../../modules';
-import {FormattedMoney} from '../../utils/formatted/money';
+import {
+  FormattedMoney,
+  verifyFloat,
+  handleSum,
+  handleMult,
+} from '../../utils/formatted/money';
 
 import Buy from './Buy';
 
@@ -35,7 +40,8 @@ const BuyMain: FC<SignInProps> = props => {
     if (validate !== undefined) {
       const newDado = {
         key: validate.key,
-        qtd: Number(validate.qtd) + Number(item.qtd),
+        name: validate.name,
+        qtd: handleSum(verifyFloat(validate.qtd), verifyFloat(item.qtd)),
         valueUnit: validate.valueUnit,
       };
 
@@ -45,7 +51,13 @@ const BuyMain: FC<SignInProps> = props => {
 
       await saveFruits(newData);
     } else {
-      const newData = [...currentData!, item];
+      const newDado = {
+        key: item.key,
+        name: item.name,
+        qtd: verifyFloat(item.qtd),
+        valueUnit: item.valueUnit,
+      };
+      const newData = [...currentData!, newDado];
 
       await saveFruits(newData);
     }
@@ -64,11 +76,11 @@ const BuyMain: FC<SignInProps> = props => {
   }
 
   function handleTotalSum(value: string) {
-    const total = Number(data.value) * Number(value);
-
-    if (parseInt(value) < 1) {
-      Alert.alert('Zeros a esquerda serão ignorados!');
+    if (value === '') {
+      return FormattedMoney(0);
     }
+
+    const total = handleMult(verifyFloat(data.value), verifyFloat(value));
 
     if (value.length > 5) {
       Alert.alert('O limite máximo é de 99999kg');

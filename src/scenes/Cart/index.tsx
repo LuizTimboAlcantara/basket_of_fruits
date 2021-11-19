@@ -3,7 +3,11 @@ import {Share, Alert} from 'react-native';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import {useFocusEffect} from '@react-navigation/native';
 
-import {handleSum} from '../../utils/formatted/money';
+import {
+  verifyFloat,
+  handleMult,
+  FormattedMoney,
+} from '../../utils/formatted/money';
 
 import {
   TemplateProofMain,
@@ -112,7 +116,7 @@ const CartMain: FC = () => {
         data[x].qtd,
         data[x].name,
         data[x].valueUnit,
-        handleSum(data[x].qtd, data[x].valueUnit),
+        FormattedMoney(Number(data[x].qtd) * Number(data[x].valueUnit)),
       );
     }
     setPdfList(listAux.substring(0, listAux.length - 1));
@@ -121,7 +125,9 @@ const CartMain: FC = () => {
   function getTotalCart() {
     if (data.length) {
       const totalArray = data
-        .map(item => Number(item.qtd) * Number(item.valueUnit))
+        .map(item =>
+          handleMult(verifyFloat(item.qtd), verifyFloat(item.valueUnit)),
+        )
         .reduce((accum, curr) => accum + curr);
 
       setTotalCart(totalArray);
