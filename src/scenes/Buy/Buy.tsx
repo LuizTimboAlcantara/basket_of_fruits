@@ -19,6 +19,7 @@ import {
   ContainerInfo,
   DescriptionInfo,
   TitleName,
+  TitleInput,
   InputValue,
   TitleValue,
 } from './styles';
@@ -56,6 +57,7 @@ export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
               keyboardType="numeric"
               onChangeText={setQuantidade}
             />
+            <TitleInput>/kg</TitleInput>
             <TitleValue>
               Total:
               {handleTotalSum(quantidade)}
@@ -70,6 +72,7 @@ export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
               onPress={() =>
                 handleAdd({
                   key: data.key,
+                  name: data.name,
                   qtd: quantidade,
                   valueUnit: data.value,
                 })

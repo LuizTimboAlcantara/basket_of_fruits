@@ -8,6 +8,7 @@ declare type FruitsProps = {
 
 declare type AsyncFruitsProps = {
   key: string;
+  name: string;
   qtd: string;
   valueUnit: string;
 };

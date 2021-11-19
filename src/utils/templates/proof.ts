@@ -28,7 +28,12 @@ export function TemplateProofMain(dados: string, totalCart: number) {
   `;
 }
 
-export function TemplateProofSecudary(key: string, qtd: string, total: string) {
+export function TemplateProofSecudary(
+  name: string,
+  qtd: string,
+  valueUnit: string,
+  total: string,
+) {
   return `
   <div class="container">
   <p class="help" style="color:#ffffff;">
@@ -46,8 +51,9 @@ export function TemplateProofSecudary(key: string, qtd: string, total: string) {
            </thead>
            <tbody>
               <tr>
-                 <td>${key}</td>
+                 <td>${name}/kg</td>
                  <td>${qtd}</td>
+                 <td>${FormattedMoney(valueUnit)}</td>
               </tr>
               <tr>
                  <td></td>

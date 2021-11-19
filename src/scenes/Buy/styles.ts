@@ -39,6 +39,12 @@ export const TitleName = styled.Text`
   margin-top: ${RFValue(15)}px;
 `;
 
+export const TitleInput = styled.Text`
+  position: absolute;
+  margin-left: 46%;
+  font-size: ${RFValue(18)}px;
+`;
+
 export const InputValue = styled(Input)`
   margin-left: 5%;
   padding: ${RFValue(15)}px ${RFValue(25)}px;

@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 
 import {CardList, InputSearch, Header} from '../../components';
 
-import {Container, CardDetailsList} from './styles';
+import {Container, Content, CardDetailsList} from './styles';
 
 interface FruitsListProps {
   data: FruitsProps;
@@ -19,15 +19,16 @@ export const FruitsList: FC<FruitsListProps> = ({
     <Container>
       <Header />
       <InputSearch onChangeText={handleSearch} />
-
-      <CardDetailsList
-        keyExtractor={item => item.key}
-        data={data}
-        renderItem={({item}) => (
-          <CardList data={item} handleDetails={() => handleDatails(item)} />
-        )}
-        numColumns={2}
-      />
+      <Content>
+        <CardDetailsList
+          keyExtractor={item => item.key}
+          data={data}
+          renderItem={({item}) => (
+            <CardList data={item} handleDetails={() => handleDatails(item)} />
+          )}
+          numColumns={2}
+        />
+      </Content>
     </Container>
   );
 };

@@ -110,7 +110,8 @@ const CartMain: FC = () => {
     for (const x in data) {
       listAux += TemplateProofSecudary(
         data[x].qtd,
-        data[x].key,
+        data[x].name,
+        data[x].valueUnit,
         handleSum(data[x].qtd, data[x].valueUnit),
       );
     }
@@ -124,6 +125,8 @@ const CartMain: FC = () => {
         .reduce((accum, curr) => accum + curr);
 
       setTotalCart(totalArray);
+    } else {
+      setTotalCart(0);
     }
   }
 

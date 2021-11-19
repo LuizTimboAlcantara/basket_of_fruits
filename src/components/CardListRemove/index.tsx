@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {TouchableOpacityProps} from 'react-native';
 
-import {handleSum} from '../../utils/formatted/money';
+import {FormattedMoney, handleSum} from '../../utils/formatted/money';
 
 import FruitIcon from '../FruitIcon';
 
@@ -22,7 +22,7 @@ interface Props extends TouchableOpacityProps {
 }
 
 const CardRemove: FC<Props> = ({data, handleRemove, ...rest}) => {
-  const {key, qtd, valueUnit} = data;
+  const {key, name, qtd, valueUnit} = data;
 
   return (
     <Container {...rest}>
@@ -30,8 +30,9 @@ const CardRemove: FC<Props> = ({data, handleRemove, ...rest}) => {
         <FruitIcon icon={key} width={100} height={100} />
       </ContainerDelete>
       <ContainerInfo>
-        <TitleFruit>Fruta: {key}</TitleFruit>
-        <TitleValue>Quantidade: {qtd}</TitleValue>
+        <TitleFruit>Fruta: {name}</TitleFruit>
+        <TitleValue>Quantidade: {qtd}/kg</TitleValue>
+        <TitleValue>Valor por kg: {FormattedMoney(valueUnit)}</TitleValue>
         <TitleValueTotal>
           Valor Total: {handleSum(qtd, valueUnit)}
         </TitleValueTotal>
