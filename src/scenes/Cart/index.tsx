@@ -20,10 +20,10 @@ const CartMain: FC = () => {
   const [data, setData] = useState<AsyncFruitsProps[]>([]);
   const [hasItens, setHasItens] = useState(false);
   const [pdfList, setPdfList] = useState('');
-  const [path, setPath] = useState<string>();
   const [totalCart, setTotalCart] = useState(0);
 
-  async function handleGenerate() {
+  async function handleGenerate(): Promise<string | undefined> {
+    console.log('DENTRO');
     let options = {
       html: TemplateProofMain(pdfList, totalCart),
       fileName: 'Comprovante de Compra',
@@ -31,15 +31,18 @@ const CartMain: FC = () => {
     };
 
     let file = await RNHTMLtoPDF.convert(options);
-    // console.log(file.filePath);
-    console.log(file.filePath);
 
-    setPath(file.filePath);
+    return file.filePath;
   }
 
   const onShare = async () => {
     try {
-      await handleGenerate();
+      console.log('Antes');
+
+      const path = await handleGenerate();
+
+      console.log(path);
+      console.log('DEPOIS');
 
       // const result =
       await Share.share({
@@ -63,8 +66,6 @@ const CartMain: FC = () => {
   async function handleGetFruits() {
     const currentData = await getFruits();
 
-    console.log(currentData);
-
     if (currentData.length > 0) {
       setHasItens(true);
     }
@@ -72,7 +73,7 @@ const CartMain: FC = () => {
     setData(currentData);
   }
 
-  async function handleRemove(fruit: string) {
+  async function handleRemove(fruit: AsyncFruitsProps) {
     Alert.alert('Remover', `Deseja remover do carrinho?`, [
       {
         text: 'Não',
@@ -85,15 +86,18 @@ const CartMain: FC = () => {
     ]);
   }
 
-  async function remove(fruit: string) {
+  async function remove(fruit: AsyncFruitsProps) {
     try {
       const currentData = await getFruits();
 
       const newlist = currentData.filter(item => item.key !== fruit.key);
 
+      if (newlist.length === 0) setHasItens(false);
+
       await saveFruits(newlist);
 
-      setData(newlist);
+      //setData(newlist);
+      handleGetFruits();
 
       // await removeAll();
     } catch (error) {
@@ -124,13 +128,13 @@ const CartMain: FC = () => {
   }
 
   useEffect(() => {
-    setList();
-    handleGetFruits;
     getTotalCart();
+    setList();
   }, [data]);
 
   useFocusEffect(
     useCallback(() => {
+      // setList();
       getTotalCart();
       handleGetFruits();
     }, []),

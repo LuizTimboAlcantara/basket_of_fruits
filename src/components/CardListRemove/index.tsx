@@ -7,7 +7,6 @@ import FruitIcon from '../FruitIcon';
 
 import {
   Container,
-  Wrapper,
   ContainerInfo,
   TitleFruit,
   TitleValue,
@@ -27,21 +26,19 @@ const CardRemove: FC<Props> = ({data, handleRemove, ...rest}) => {
 
   return (
     <Container {...rest}>
-      <Wrapper>
-        <ContainerDelete>
-          <FruitIcon icon={key} width={100} height={100} />
-        </ContainerDelete>
-        <ContainerInfo>
-          <TitleFruit>Fruta: {key}</TitleFruit>
-          <TitleValue>Quantidade: {qtd}</TitleValue>
-          <TitleValueTotal>
-            Valor Total: {handleSum(qtd, valueUnit)}
-          </TitleValueTotal>
-        </ContainerInfo>
-        <IconContainer onPress={handleRemove}>
-          <Icon name="cancel" />
-        </IconContainer>
-      </Wrapper>
+      <ContainerDelete>
+        <FruitIcon icon={key} width={100} height={100} />
+      </ContainerDelete>
+      <ContainerInfo>
+        <TitleFruit>Fruta: {key}</TitleFruit>
+        <TitleValue>Quantidade: {qtd}</TitleValue>
+        <TitleValueTotal>
+          Valor Total: {handleSum(qtd, valueUnit)}
+        </TitleValueTotal>
+      </ContainerInfo>
+      <IconContainer onPress={handleRemove}>
+        <Icon name="cancel" />
+      </IconContainer>
     </Container>
   );
 };

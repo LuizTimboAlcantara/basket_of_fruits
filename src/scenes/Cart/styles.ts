@@ -8,10 +8,15 @@ export const Container = styled.View`
   flex: 1;
   margin-top: ${getStatusBarHeight()}px;
   margin-bottom: ${getBottomSpace()}px;
+  justify-content: space-between;
+`;
+
+export const Header = styled.View`
+  align-items: center;
 `;
 
 export const Content = styled.View`
-  align-items: center;
+  flex: 1;
 `;
 
 export const WrapperHasItens = styled.View`
@@ -45,7 +50,7 @@ export const WrapperFruits = styled.View`
 `;
 
 export const CardDetailsList = styled(
-  FlatList as new () => FlatList<FruitsProps>,
+  FlatList as new () => FlatList<AsyncFruitsProps>,
 ).attrs({
   showsVerticalScrollIndicator: false,
 })``;

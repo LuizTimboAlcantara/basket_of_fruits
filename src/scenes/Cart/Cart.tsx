@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import {FlatList, View} from 'react-native';
 import {CardListRemove, Button, Goback} from '../../components';
 
 import {FormattedMoney} from '../../utils/formatted/money';
@@ -8,21 +9,22 @@ import Colors from '../../utils/theme/colors';
 
 import {
   Container,
-  Content,
+  Header,
   InfoItens,
   WrapperHasItens,
   Icon,
   Title,
+  Content,
   WrapperFruits,
   CardDetailsList,
   Footer,
 } from './styles';
 
 interface CartProps {
-  data: FruitsProps;
+  data: AsyncFruitsProps[];
   hasItens: boolean;
-  totalCart: string;
-  handleRemove: (fruit: string) => Promise<void>;
+  totalCart: number;
+  handleRemove: (fruit: AsyncFruitsProps) => Promise<void>;
   onShare: () => Promise<void>;
 }
 
@@ -35,39 +37,40 @@ export const Cart: FC<CartProps> = ({
 }) => {
   return (
     <Container>
-      <Content>
-        <Goback />
-        <Title>Minha Lista - {FormattedMoney(totalCart)}</Title>
-      </Content>
-
-      {!hasItens ? (
-        <WrapperHasItens>
-          <InfoItens>{Texts.INFOCARRINHO}</InfoItens>
-          <Icon />
-        </WrapperHasItens>
-      ) : (
-        <WrapperFruits>
-          <CardDetailsList
-            keyExtractor={item => item.key}
-            data={data}
-            renderItem={({item}) => (
-              <CardListRemove
-                data={item}
-                handleRemove={() => handleRemove(item)}
+      <>
+        <Header>
+          <Goback />
+          <Title>Minha Lista - {FormattedMoney(totalCart)}</Title>
+        </Header>
+        {!hasItens ? (
+          <WrapperHasItens>
+            <InfoItens>{Texts.INFOCARRINHO}</InfoItens>
+            <Icon />
+          </WrapperHasItens>
+        ) : (
+          <>
+            <Content>
+              <FlatList
+                data={data}
+                renderItem={({item}) => (
+                  <CardListRemove
+                    data={item}
+                    handleRemove={() => handleRemove(item)}
+                  />
+                )}
               />
-            )}
-          />
-
-          <Footer>
-            <Button
-              title="Gerar comprovate"
-              color={Colors.secondary}
-              type="large"
-              onPress={onShare}
-            />
-          </Footer>
-        </WrapperFruits>
-      )}
+            </Content>
+            <Footer>
+              <Button
+                title="Gerar comprovante"
+                color={Colors.secondary}
+                type="large"
+                onPress={onShare}
+              />
+            </Footer>
+          </>
+        )}
+      </>
     </Container>
   );
 };

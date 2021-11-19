@@ -6,17 +6,15 @@ import {MaterialIcons} from '../../modules';
 import Colors from '../../utils/theme/colors';
 
 export const Container = styled.View`
-  flex: 1;
+  flex-direction: row;
+  max-height: ${RFValue(150)}px;
+
   background-color: ${Colors.shape};
   border-radius: ${RFValue(20)}px;
   padding: ${RFValue(15)}px ${RFValue(10)}px;
   align-items: center;
   margin: ${RFValue(5)}px ${RFValue(10)}px;
   top: ${getStatusBarHeight()}px;
-`;
-
-export const Wrapper = styled.View`
-  flex-direction: row;
 `;
 
 export const ContainerInfo = styled.View`

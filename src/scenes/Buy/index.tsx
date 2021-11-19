@@ -20,7 +20,7 @@ const BuyMain: FC<SignInProps> = props => {
   const {getFruits, saveFruits, removeAll} = useContext(FruitsContext);
 
   async function handleAdd(item: AsyncFruitsProps) {
-    if (!item.qtd) {
+    if (!item.qtd || Number(item.qtd) === 0) {
       Alert.alert(
         'É preciso adicionar uma quantidade para adicionar o item ao carrinho!',
       );

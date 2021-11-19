@@ -2,7 +2,7 @@ import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface FruitsContextProps {
-  getFruits: () => Promise<[]>;
+  getFruits: () => Promise<AsyncFruitsProps[]>;
   saveFruits: (newFruits: AsyncFruitsProps[]) => Promise<void>;
   removeAll: () => Promise<void>;
 }
