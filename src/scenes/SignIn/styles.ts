@@ -48,6 +48,11 @@ export const TitleInputs = styled.Text`
   margin-bottom: ${RFValue(5)}px;
 `;
 
+export const TitleErros = styled.Text`
+  color: ${Colors.attention};
+  font-size: ${RFValue(15)}px;
+`;
+
 export const SignInTitle = styled.Text`
   color: ${Colors.shape};
   font-size: ${RFValue(16)}px;

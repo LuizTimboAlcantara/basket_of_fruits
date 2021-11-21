@@ -19,7 +19,7 @@ import FruitsContext from '../../contexts/cart';
 import Cart from './Cart';
 
 const CartMain: FC = () => {
-  const {getFruits, saveFruits, removeAll} = useContext(FruitsContext);
+  const {getFruits, saveFruits} = useContext(FruitsContext);
 
   const [data, setData] = useState<AsyncFruitsProps[]>([]);
   const [hasItens, setHasItens] = useState(false);
@@ -27,7 +27,6 @@ const CartMain: FC = () => {
   const [totalCart, setTotalCart] = useState(0);
 
   async function handleGenerate(): Promise<string | undefined> {
-    console.log('DENTRO');
     let options = {
       html: TemplateProofMain(pdfList, totalCart),
       fileName: 'Comprovante de Compra',
@@ -41,29 +40,14 @@ const CartMain: FC = () => {
 
   const onShare = async () => {
     try {
-      console.log('Antes');
-
       const path = await handleGenerate();
 
-      console.log(path);
-      console.log('DEPOIS');
-
-      // const result =
       await Share.share({
         url: path,
         message: 'Comprovante de Compra',
       });
-      // if (result.action === Share.sharedAction) {
-      //   if (result.activityType) {
-      //     // shared with activity type of result.activityType
-      //   } else {
-      //     // shared
-      //   }
-      // } else if (result.action === Share.dismissedAction) {
-      //   // dismissed
-      // }
-    } catch (error) {
-      console.log(error.message);
+    } catch {
+      Alert.alert('Houve um erro tente novamente!');
     }
   };
 
@@ -143,7 +127,6 @@ const CartMain: FC = () => {
 
   useFocusEffect(
     useCallback(() => {
-      // setList();
       getTotalCart();
       handleGetFruits();
     }, []),

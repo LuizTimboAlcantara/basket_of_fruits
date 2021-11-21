@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList} from 'react-native';
 import {CardListRemove, Button, Goback} from '../../components';
 
 import {FormattedMoney} from '../../utils/formatted/money';
@@ -15,8 +15,6 @@ import {
   Icon,
   Title,
   Content,
-  WrapperFruits,
-  CardDetailsList,
   Footer,
 } from './styles';
 
@@ -51,6 +49,7 @@ export const Cart: FC<CartProps> = ({
           <>
             <Content>
               <FlatList
+                keyExtractor={item => item.key}
                 data={data}
                 renderItem={({item}) => (
                   <CardListRemove

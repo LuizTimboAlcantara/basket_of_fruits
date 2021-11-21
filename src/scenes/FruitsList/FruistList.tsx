@@ -5,8 +5,8 @@ import {CardList, InputSearch, Header} from '../../components';
 import {Container, Content, CardDetailsList} from './styles';
 
 interface FruitsListProps {
-  data: FruitsProps[];
-  handleDatails: (item: FruitsListProps) => void;
+  data: FruitsProps;
+  handleDatails: (item: FruitsListProps) => Promise<void>;
   handleSearch: (value: string) => void;
 }
 

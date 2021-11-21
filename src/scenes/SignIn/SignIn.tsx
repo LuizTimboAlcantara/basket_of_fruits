@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {Text, TouchableWithoutFeedback, Keyboard} from 'react-native';
+import {TouchableWithoutFeedback, Keyboard} from 'react-native';
 
 import {useFormikContext} from 'formik';
 
@@ -15,6 +15,7 @@ import {
   IconLogo,
   TitleWrapper,
   TitleInputs,
+  TitleErros,
   Title,
   SignInTitle,
   Footer,
@@ -47,7 +48,9 @@ export const SignIn: FC = () => {
                 onChangeText={handleChange('user')}
                 onBlur={() => setFieldTouched('user', true)}
               />
-              {errors.user && touched.user && <Text>{errors.user}</Text>}
+              {errors.user && touched.user && (
+                <TitleErros>{errors.user}</TitleErros>
+              )}
               <TitleInputs>Senha</TitleInputs>
               <Input
                 placeholder="12345678"
@@ -57,7 +60,7 @@ export const SignIn: FC = () => {
                 onBlur={() => setFieldTouched('password', true)}
               />
               {errors.password && touched.password && (
-                <Text>{errors.password}</Text>
+                <TitleErros>{errors.password}</TitleErros>
               )}
               <Button
                 title="Entrar"

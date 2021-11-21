@@ -45,10 +45,6 @@ export const Icon = styled(Cesta)`
   height: ${RFValue(250)}px;
 `;
 
-export const WrapperFruits = styled.View`
-  flex: 1;
-`;
-
 export const CardDetailsList = styled(
   FlatList as new () => FlatList<AsyncFruitsProps>,
 ).attrs({

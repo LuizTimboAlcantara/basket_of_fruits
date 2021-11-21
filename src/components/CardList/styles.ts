@@ -14,10 +14,6 @@ export const Container = styled.View`
   margin: ${RFValue(5)}px;
 `;
 
-export const Wrapper = styled.View`
-  flex-direction: row;
-`;
-
 export const ContainerInfo = styled.View`
   width: 100%;
   top: 15%;

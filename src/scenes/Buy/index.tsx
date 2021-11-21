@@ -22,7 +22,7 @@ const BuyMain: FC<SignInProps> = props => {
   const {data} = props.route.params;
   const navigation = useNavigation();
 
-  const {getFruits, saveFruits, removeAll} = useContext(FruitsContext);
+  const {getFruits, saveFruits} = useContext(FruitsContext);
 
   async function handleAdd(item: AsyncFruitsProps) {
     if (!item.qtd || Number(item.qtd) === 0) {
@@ -61,8 +61,6 @@ const BuyMain: FC<SignInProps> = props => {
 
       await saveFruits(newData);
     }
-
-    // await removeAll();
 
     handleFruitsList();
   }
