@@ -54,7 +54,7 @@ const BuyMain: FC<SignInProps> = props => {
       const newDado = {
         key: item.key,
         name: item.name,
-        qtd: verifyFloat(item.qtd),
+        qtd: String(verifyFloat(item.qtd)),
         valueUnit: item.valueUnit,
       };
       const newData = [...currentData!, newDado];

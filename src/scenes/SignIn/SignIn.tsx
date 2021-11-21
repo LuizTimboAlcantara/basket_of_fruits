@@ -1,13 +1,11 @@
-import React, {FC, useRef} from 'react';
-
-import {Formik} from 'formik';
-import * as Yup from 'yup';
+import React, {FC} from 'react';
 import {Text} from 'react-native';
+import {useFormikContext} from 'formik';
 
-import {Button, Input} from '../../components';
-
+import {SingInForm} from './form';
 import Texts from '../../utils/texts';
 import Colors from '../../utils/theme/colors';
+import {Button, Input} from '../../components';
 
 import {
   Container,
@@ -20,20 +18,9 @@ import {
   FooterWrapper,
 } from './styles';
 
-interface SignInProps {
-  handleFruitsList: () => void;
-}
-
-export const SignIn: FC<SignInProps> = ({handleFruitsList}) => {
-  const user = useRef(null);
-  const password = useRef(null);
-
-  const FormSchema = Yup.object().shape({
-    user: Yup.string().email().required('Campo obrigatório'),
-    password: Yup.string()
-      .required('Campo obrigatório')
-      .min(8, 'Digite pelo menos 8 caracteres'),
-  });
+export const SignIn: FC = () => {
+  const {values, errors, setFieldTouched, handleChange, touched, handleSubmit} =
+    useFormikContext<SingInForm>();
 
   return (
     <Container>
@@ -41,61 +28,39 @@ export const SignIn: FC<SignInProps> = ({handleFruitsList}) => {
         <TitleWrapper>
           <IconLogo />
         </TitleWrapper>
-
         <Title>{Texts.TITLELOGIN}</Title>
         <SignInTitle>{Texts.SUBTITLELOGIN}</SignInTitle>
       </Header>
-
       <Footer>
-        <Formik
-          initialValues={{
-            user: '',
-            password: '',
-          }}
-          onSubmit={values => {
-            handleFruitsList();
-          }}
-          validationSchema={FormSchema}>
-          {({
-            values,
-            handleChange,
-            handleSubmit,
-            errors,
-            touched,
-            setFieldTouched,
-          }) => (
-            <FooterWrapper>
-              <Text>Usuário</Text>
-              <Input
-                ref={user}
-                placeholder="teste@teste.com"
-                type="large"
-                value={values.user}
-                onChangeText={handleChange('user')}
-                onBlur={() => setFieldTouched('user', true)}
-              />
-              {errors.user && touched.user && <Text>{errors.user}</Text>}
-              <Text>Senha</Text>
-              <Input
-                ref={password}
-                placeholder="12345678"
-                type="large"
-                value={values.password}
-                onChangeText={handleChange('password')}
-                onBlur={() => setFieldTouched('password', true)}
-              />
-              {errors.password && touched.password && (
-                <Text>{errors.password}</Text>
-              )}
-              <Button
-                title="Entrar"
-                type="large"
-                color={Colors.success}
-                onPress={handleSubmit}
-              />
-            </FooterWrapper>
+        <FooterWrapper>
+          <Text>Usuário</Text>
+          <Input
+            placeholder="teste@teste.com"
+            type="large"
+            value={values.user}
+            autoCapitalize="none"
+            onChangeText={handleChange('user')}
+            onBlur={() => setFieldTouched('user', true)}
+          />
+          {errors.user && touched.user && <Text>{errors.user}</Text>}
+          <Text>Senha</Text>
+          <Input
+            placeholder="12345678"
+            type="large"
+            value={values.password}
+            onChangeText={handleChange('password')}
+            onBlur={() => setFieldTouched('password', true)}
+          />
+          {errors.password && touched.password && (
+            <Text>{errors.password}</Text>
           )}
-        </Formik>
+          <Button
+            title="Entrar"
+            type="large"
+            color={Colors.success}
+            onPress={handleSubmit}
+          />
+        </FooterWrapper>
       </Footer>
     </Container>
   );

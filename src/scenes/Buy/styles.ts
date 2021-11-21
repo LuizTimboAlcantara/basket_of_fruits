@@ -1,6 +1,13 @@
 import styled from 'styled-components/native';
 import {Input} from '../../components';
+import {KeyboardAvoidingView, Platform} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
+
+export const Wrapper = styled(KeyboardAvoidingView).attrs({
+  behavior: Platform.OS === 'ios' ? 'padding' : 'height',
+})`
+  flex: 1;
+`;
 
 export const Container = styled.View`
   flex: 1;

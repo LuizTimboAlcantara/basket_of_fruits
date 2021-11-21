@@ -9,6 +9,7 @@ export const Container = styled.View`
 `;
 
 export const Content = styled.View`
+  height: 100%;
   margin-left: 5%;
 `;
 

@@ -1,18 +1,14 @@
 import React, {FC, useState} from 'react';
-import {
-  TouchableWithoutFeedback,
-  Keyboard,
-  KeyboardAvoidingView,
-  Platform,
-} from 'react-native';
+import {TouchableWithoutFeedback, Keyboard} from 'react-native';
 
-import {Button, Input, FruitIcon, Goback} from '../../components';
+import {Button, FruitIcon, Goback} from '../../components';
 
 import {FormattedMoney} from '../../utils/formatted/money';
 
 import Colors from '../../utils/theme/colors';
 
 import {
+  Wrapper,
   Container,
   Footer,
   InputContainer,
@@ -31,12 +27,10 @@ interface SignInProps {
 }
 
 export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
-  const [quantidade, setQuantidade] = useState('');
+  const [quantity, setQuantity] = useState('');
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{flex: 1}}>
+    <Wrapper>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <Container>
           <Goback />
@@ -55,12 +49,12 @@ export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
               placeholder="kg"
               type="small"
               keyboardType="numeric"
-              onChangeText={setQuantidade}
+              onChangeText={setQuantity}
             />
             <TitleInput>/kg</TitleInput>
             <TitleValue>
               Total:
-              {handleTotalSum(quantidade)}
+              {handleTotalSum(quantity)}
             </TitleValue>
           </InputContainer>
 
@@ -73,7 +67,7 @@ export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
                 handleAdd({
                   key: data.key,
                   name: data.name,
-                  qtd: quantidade,
+                  qtd: quantity,
                   valueUnit: data.value,
                 })
               }
@@ -81,7 +75,7 @@ export const Buy: FC<SignInProps> = ({data, handleAdd, handleTotalSum}) => {
           </Footer>
         </Container>
       </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+    </Wrapper>
   );
 };
 
