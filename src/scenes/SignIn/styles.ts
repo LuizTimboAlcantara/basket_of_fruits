@@ -1,18 +1,20 @@
 import styled from 'styled-components/native';
+import {KeyboardAvoidingView, Platform} from 'react-native';
+
 import {RFValue, RFPercentage} from 'react-native-responsive-fontsize';
 
 import {Logo} from '../../assets/svgs';
 
 import Colors from '../../utils/theme/colors';
 
-export const Container = styled.View`
+export const Wrapper = styled(KeyboardAvoidingView).attrs({
+  behavior: Platform.OS === 'ios' ? 'padding' : 'height',
+})`
   flex: 1;
 `;
 
-export const Content = styled.ScrollView`
+export const Container = styled.View`
   flex: 1;
-  width: 100%;
-  height: 100%;
 `;
 
 export const Header = styled.View`
@@ -38,6 +40,12 @@ export const Title = styled.Text`
   font-size: ${RFValue(30)}px;
   text-align: center;
   margin-top: ${RFValue(45)}px;
+`;
+
+export const TitleInputs = styled.Text`
+  color: ${Colors.shape};
+  font-size: ${RFValue(15)}px;
+  margin-bottom: ${RFValue(5)}px;
 `;
 
 export const SignInTitle = styled.Text`
