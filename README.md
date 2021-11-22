@@ -18,7 +18,7 @@
 ## 🔎 Índice
 
 - [🔎 Índice](#-índice)
-- [☔ Sobre](#-sobre)
+- [🍎 Sobre](#-sobre)
 - [💻 Tecnologias utilizadas](#-tecnologias-utilizadas)
 - [🧱 Estrutura do projeto](#-estrutura-do-projeto)
 - [📁 Como baixar o projeto e executar](#-como-baixar-o-projeto-e-executar)
