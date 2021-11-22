@@ -27,7 +27,7 @@ const CardList: FC<Props> = ({data, handleDetails, ...rest}) => {
       <FruitIcon icon={name} width={100} height={100} />
       <ContainerInfo>
         <TitleFruits>Fruta: {name}</TitleFruits>
-        <ValueTitle>Valor: {FormattedMoney(value)}/kg</ValueTitle>
+        <ValueTitle>Valor: {FormattedMoney(Number(value))}/kg</ValueTitle>
         <IconContainer onPress={handleDetails}>
           <Icon name="add" />
         </IconContainer>

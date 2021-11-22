@@ -99,7 +99,7 @@ const CartMain: FC = () => {
       listAux += TemplateProofSecudary(
         data[x].qtd,
         data[x].name,
-        data[x].valueUnit,
+        FormattedMoney(Number(data[x].valueUnit)),
         FormattedMoney(Number(data[x].qtd) * Number(data[x].valueUnit)),
       );
     }

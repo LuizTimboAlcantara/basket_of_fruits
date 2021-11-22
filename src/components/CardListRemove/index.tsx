@@ -32,9 +32,12 @@ const CardRemove: FC<Props> = ({data, handleRemove, ...rest}) => {
       <ContainerInfo>
         <TitleFruit>Fruta: {name}</TitleFruit>
         <TitleValue>Quantidade: {parseFloat(qtd).toFixed(2)}/kg</TitleValue>
-        <TitleValue>Valor por kg: {FormattedMoney(valueUnit)}</TitleValue>
+        <TitleValue>
+          Valor por kg: {FormattedMoney(Number(valueUnit))}
+        </TitleValue>
         <TitleValueTotal>
-          Valor Total: {FormattedMoney(handleMult(qtd, valueUnit).toFixed(2))}
+          Valor Total:{' '}
+          {FormattedMoney(Number(handleMult(qtd, valueUnit).toFixed(2)))}
         </TitleValueTotal>
       </ContainerInfo>
       <IconContainer onPress={handleRemove}>

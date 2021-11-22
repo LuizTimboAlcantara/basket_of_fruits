@@ -1,12 +1,13 @@
 import React, {FC} from 'react';
+import {FlatList} from 'react-native';
 
 import {CardList, InputSearch, Header} from '../../components';
 
-import {Container, Content, CardDetailsList} from './styles';
+import {Container, Content} from './styles';
 
 interface FruitsListProps {
-  data: FruitsProps;
-  handleDatails: (item: FruitsListProps) => Promise<void>;
+  data: FruitsProps[];
+  handleDatails: (item: FruitsListProps) => void;
   handleSearch: (value: string) => void;
 }
 
@@ -20,9 +21,10 @@ export const FruitsList: FC<FruitsListProps> = ({
       <Header />
       <InputSearch onChangeText={handleSearch} />
       <Content>
-        <CardDetailsList
+        <FlatList
           keyExtractor={item => item.key}
           data={data}
+          style={{marginBottom: 160}}
           renderItem={({item}) => (
             <CardList data={item} handleDetails={() => handleDatails(item)} />
           )}

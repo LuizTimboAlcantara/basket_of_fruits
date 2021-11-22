@@ -41,7 +41,9 @@ const BuyMain: FC<SignInProps> = props => {
       const newDado = {
         key: validate.key,
         name: validate.name,
-        qtd: handleSum(verifyFloat(validate.qtd), verifyFloat(item.qtd)),
+        qtd: String(
+          handleSum(verifyFloat(validate.qtd), verifyFloat(item.qtd)),
+        ),
         valueUnit: validate.valueUnit,
       };
 

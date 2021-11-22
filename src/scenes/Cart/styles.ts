@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import {FlatList} from 'react-native';
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {Cesta} from '../../assets/svgs';
@@ -44,11 +43,5 @@ export const Icon = styled(Cesta)`
   width: ${RFValue(250)}px;
   height: ${RFValue(250)}px;
 `;
-
-export const CardDetailsList = styled(
-  FlatList as new () => FlatList<AsyncFruitsProps>,
-).attrs({
-  showsVerticalScrollIndicator: false,
-})``;
 
 export const Footer = styled.View``;

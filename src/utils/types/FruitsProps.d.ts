@@ -2,7 +2,7 @@ declare type FruitsProps = {
   key: string;
   name: string;
   description: string;
-  value: string | number;
+  value: string;
 };
 
 declare type AsyncFruitsProps = {

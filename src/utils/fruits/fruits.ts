@@ -8,7 +8,7 @@ export const fruits = [
     - A recomendação é consumir uma banana ao dia, preferencialmente no período matinal;${'\n'}
     - Pessoas com problemas renais e que precisam restringir o consumo de alimentos com potássio devem ingerir com moderação;${'\n'}
     - Há diversos tipos de bananas disponíveis para consumo, com sabores e características distintas, mas todas são nutritivas`,
-    value: 7,
+    value: '7',
   },
   {
     key: 'maca',
@@ -20,7 +20,7 @@ export const fruits = [
       - Melhora o funcionamento do intestino;${'\n'}
       - Alivia dores de estômago;${'\n'}
     `,
-    value: 5,
+    value: '5',
   },
   {
     key: 'pera',
@@ -32,7 +32,7 @@ export const fruits = [
     - Melhora o controle glicêmico;${'\n'}
     - Aumenta a saciedade;${'\n'}
   `,
-    value: 4,
+    value: '4',
   },
   {
     key: 'abacaxi',
@@ -44,7 +44,7 @@ export const fruits = [
     - Fortalece o organismo após os ecercícios;${'\n'}
     - Emagrece;${'\n'}
   `,
-    value: 3,
+    value: '3',
   },
   {
     key: 'manga',
@@ -56,6 +56,6 @@ export const fruits = [
     - Ajuda na imunidade;${'\n'}
     - Alivia a constipação;${'\n'}
   `,
-    value: 6,
+    value: '6',
   },
 ];
